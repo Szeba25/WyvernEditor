@@ -1,0 +1,44 @@
+// Default color theme
+// Author: Szeba
+
+font = 255 255 255 255
+
+widget_active_brd = 180 180 210 255
+widget_passive_brd = 90 90 120 255
+widget_bkg = 0 0 10 255
+widget_bkg2 = 15 15 25 255
+widget_bkg3 = 10 10 20 255
+widget_bkg4 = 30 30 40 255
+widget_highlight = 140 160 220 128
+
+event_bkg_active = 180 180 210 180
+event_bkg_passive = 180 180 210 128
+commonevent_bkg_active = 20 20 80 180
+commonevent_bkg_passive = 20 20 80 128
+
+event_selection = 0 0 0 255
+event_mouseover = 60 60 90 128
+tiles_maintile = 30 30 60 255
+map_paint_rect = 30 30 60 255
+map_selection_rect = 30 30 60 128
+map_cellgrid = 255 255 255 255
+map_tilegrid = 0 0 0 120
+list_scrollbar = 128 128 160 255
+list_mark = 80 80 150 255
+toolbar_mark = 180 180 210 128
+text_selection = 114 166 219 160
+text_cursor = 255 255 255 255
+out_of_screen = 64 64 64 255
+
+command_color_0 = 255 255 255 255
+command_color_1 = 20 210 20 255
+command_color_2 = 40 240 210 255
+command_color_3 = 215 177 59 255
+command_color_4 = 143 125 226 255
+command_color_5 = 239 41 41 255
+command_color_6 = 239 41 171 255
+command_color_7 = 137 137 137 255
+command_color_8 = 255 162 80 255
+command_color_9 = 225 174 246 255
+command_color_10 = 164 232 61 255
+command_color_11 = 246 250 24 255
