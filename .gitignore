@@ -78,6 +78,5 @@ Thumbs.db
 ## Wyvern specific
 
 core/core\ files/jre1.8.0_51/
-core/libs/
 core/interpreters/
 core/Wyvern.jar
