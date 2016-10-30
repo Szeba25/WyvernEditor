@@ -109,7 +109,7 @@ public class CommandList extends List {
 	
 	private void processPaste() {
 		if (Wyvern.input.isKeyHold(Keys.CONTROL_LEFT) || Wyvern.input.isKeyHold(Keys.CONTROL_RIGHT)) {
-			if (Wyvern.input.isKeyPressed(Keys.V) && copyBuffer.size() > 0) {
+			if (Wyvern.input.isKeyPressed(Keys.V) && copyBuffer.size() > 0 && getSelected() != null) {
 				// Paste the elements inside the list, and refactor the indentations.
 				int newIndent = getSelected().getIndentSize();
 				int minIndent = copyBuffer.get(0).getIndentSize();
