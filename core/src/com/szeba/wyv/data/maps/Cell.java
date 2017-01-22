@@ -280,11 +280,9 @@ public class Cell {
 					float r = (float) tiles[x][y].getX(layer);
 					float g = (float) tiles[x][y].getY(layer);
 					float b = (float) tiles[x][y].getType(layer) + 1;
-					float a = (float) tiles[x][y].getIndex(layer);
-					if (a < 0) {
-						a = 0;
-					}
-					pixmap.setColor(new Color(r/255.0f, g/255.0f, b/255.0f, a/255.0f));
+
+					// We modified the saving method to use full alpha.
+					pixmap.setColor(new Color(r/255.0f, g/255.0f, b/255.0f, 1.0f));
 					pixmap.drawPixel(x, y);
 				}
 			}
@@ -689,7 +687,12 @@ public class Cell {
 			}
 		}
 	}
-	
+
+	private int calculateAutoIndex(int x, int y) {
+		// We must determine the index by the x and y coordinates.
+		return ((y%6)*8) + (x%8);
+	}
+
 	private void loadTileData(int id) {
 		// The pixmap from where we will get color values
 		Pixmap pixmap = new Pixmap(new FileHandle(map.getPath() + "/" + name + "/" + id + ".png"));
@@ -709,7 +712,10 @@ public class Cell {
 				int cr = (int)(color.r * 255.0f);
 				int cg = (int)(color.g * 255.0f);
 				int cb = (int)(color.b * 255.0f);
-				int ca = (int)(color.a * 255.0f);
+
+				// We need to figure 'ca' out.
+				int ca = calculateAutoIndex(cr, cg);
+
 				// cb contains the autotile data
 				if (cb > 0) {
 					tiles[x][y].setData(id, cb-1, ca, cr, cg);
