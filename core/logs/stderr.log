@@ -1,7 +1,0 @@
-Exception in thread "LWJGL Application" java.lang.IllegalArgumentException: Parameter 'directory' is not a directory
-	at org.apache.commons.io.FileUtils.validateListFilesParameters(FileUtils.java:545)
-	at org.apache.commons.io.FileUtils.listFilesAndDirs(FileUtils.java:593)
-	at com.szeba.wyv.Wyvern.mapGameMapIDs(Wyvern.java:358)
-	at com.szeba.wyv.Wyvern.create(Wyvern.java:131)
-	at com.badlogic.gdx.backends.lwjgl.LwjglApplication.mainLoop(LwjglApplication.java:147)
-	at com.badlogic.gdx.backends.lwjgl.LwjglApplication$1.run(LwjglApplication.java:124)
