@@ -82,4 +82,5 @@ core/core\ files/interpreter.ikd
 core/core\ files/preview_panel.ikd
 core/core\ files/signature.txt
 core/interpreters/
+core/logs/
 core/Wyvern.jar
