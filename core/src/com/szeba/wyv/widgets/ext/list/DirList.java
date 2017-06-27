@@ -1,6 +1,7 @@
 package com.szeba.wyv.widgets.ext.list;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Path;
 import java.util.ArrayList;
 
@@ -12,6 +13,7 @@ import com.szeba.wyv.utilities.FileUtilities;
 import com.szeba.wyv.utilities.StringUtilities;
 import com.szeba.wyv.widgets.List;
 import com.szeba.wyv.widgets.ext.Warning;
+import org.apache.commons.io.FileUtils;
 
 /**
  * An extension of the basic List. This DirList represents a directory browser.
@@ -219,11 +221,26 @@ public class DirList extends List {
 		}
 		
 	}
-	
+
+	public boolean renameNecessary(String name) {
+		String f1 = directory + "/" + name;
+		String f2 = directory + "/" + getSelected().getData();
+		return !(f2.equals(f1));
+	}
+
 	public boolean renameSelectedFolder(String name, int type) {
 		File f1 = new File(directory + "/" + name);
 		File f2 = new File(directory + "/" + getSelected().getData());
-		boolean succeed = f2.renameTo(f1);
+
+		boolean succeed;
+		try {
+			FileUtils.moveDirectory(f2, f1);
+			succeed = true;
+		} catch (IOException e) {
+			e.printStackTrace();
+			succeed = false;
+		}
+
 		if (succeed) {
 			int id = this.getSelectedID();
 			if (type == 1) {
@@ -234,6 +251,7 @@ public class DirList extends List {
 				this.replaceElement(id, new ListElement(StringUtilities.getSpecialFileName(name), name, type));
 			}
 		}
+
 		return succeed;
 	}
 	

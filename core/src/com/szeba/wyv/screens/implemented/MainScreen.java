@@ -375,8 +375,11 @@ public class MainScreen extends GeneralScreen {
 						
 						// Proceed with renaming!
 						String oldListElementData = listElement.getData();
-						
-						if (e_List.renameSelectedFolder(signal.getParam(0) + "@map", 2)) {
+
+						if (!e_List.renameNecessary(signal.getParam(0) + "@map")) {
+							// The name was the same as before!
+
+						} else if (e_List.renameSelectedFolder(signal.getParam(0) + "@map", 2)) {
 							
 							// We are going to rename a map. We must update the interface too.
 							for (GameMap gm : Wyvern.cache.getMaps().values()) {
