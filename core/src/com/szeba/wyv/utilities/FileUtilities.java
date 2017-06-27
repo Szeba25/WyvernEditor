@@ -198,7 +198,7 @@ public final class FileUtilities {
 				ext_lowercase.equals("jpeg") ||
 				ext_lowercase.equals("gif") ||
 				ext_lowercase.equals("bmp") ||
-				ext_lowercase.equals("ikd"))
+				ext_lowercase.equals("wdat"))
 				) {
 			return true;
 		} else {

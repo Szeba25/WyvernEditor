@@ -113,11 +113,11 @@ public class GameMap {
 		this.signature_id = "-1";
 		
 		// Load the ID of the map
-		TextFile tid = new TextFile(path + "/map_id.ikd");
+		TextFile tid = new TextFile(path + "/map_id.wdat");
 		signature_id = tid.getValue(0, 0);
 		
 		// Load the places file
-		TextFile pt = new TextFile(path + "/places.ikd");
+		TextFile pt = new TextFile(path + "/places.wdat");
 		places = new HashMap<String, Point>();
 		for (int i = 0; i < pt.getLength(); i++) {
 			Point point = new Point(Integer.parseInt(pt.getValue(i, 1)), Integer.parseInt(pt.getValue(i, 2)));
@@ -125,7 +125,7 @@ public class GameMap {
 		}
 		
 		// Load the metadata file
-		TextFile t = new TextFile(path + "/map_metadata.ikd");
+		TextFile t = new TextFile(path + "/map_metadata.wdat");
 		
 		// Set the cell size
 		cellw = Integer.parseInt(t.getValue(0, 1));
@@ -386,7 +386,7 @@ public class GameMap {
 		}
 		
 		// Save the metadata
-		TextFile t = new TextFile(this.path + "/map_metadata.ikd", null);
+		TextFile t = new TextFile(this.path + "/map_metadata.wdat", null);
 		t = constructMetadata(t, Integer.toString(cellw), Integer.toString(cellh),
 				Integer.toString(maxCellX), Integer.toString(maxCellY),
 				Integer.toString(startingX), Integer.toString(startingY), 
@@ -394,13 +394,13 @@ public class GameMap {
 		t.save();
 		
 		// Save the map ID
-		TextFile t3 = new TextFile(this.path + "/map_id.ikd", null);
+		TextFile t3 = new TextFile(this.path + "/map_id.wdat", null);
 		t3.addLine();
 		t3.addValue(this.signature_id);
 		t3.save();
 		
 		// Save the places
-		TextFile t2 = new TextFile(this.path + "/places.ikd", null);
+		TextFile t2 = new TextFile(this.path + "/places.wdat", null);
 		for (Map.Entry<String, Point> place : places.entrySet()) {
 			t2.addLine();
 			t2.addValue(place.getKey());

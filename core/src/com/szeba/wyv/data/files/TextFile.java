@@ -60,7 +60,7 @@ public class TextFile {
 		// The line variable holding the current readed line
 		String line;
 		
-		// Check whether this is an ikd file or text file
+		// Check whether this is an wdat file or text file
 		setSplitBy(path);
 		
 		// Add lines of data. Catch IOException
@@ -69,8 +69,10 @@ public class TextFile {
 				// We have a line of data here. Split, and add to arraylist
 				
 				String[] finalData = StringUtilities.safeSplit(line, splitBy);
-				
+
 				/*
+				System.out.println("original line: " + line);
+				System.out.println("splitby: " + splitBy);
 				for (int i = 0; i < finalData.length; i++) {
 					finalData[i] = StringUtils.trim(finalData[i]);
 					System.out.println(finalData[i]);
@@ -95,8 +97,8 @@ public class TextFile {
 	
 	private void setSplitBy(String path) {
 		splitBy = Separator.fileTextChar;
-		if (StringUtilities.getExtension(path).equals("ikd")) {
-			splitBy = Separator.fileIkdChar;
+		if (StringUtilities.getExtension(path).equals("wdat")) {
+			splitBy = Separator.fileWyvChar;
 		}
 	}
 	

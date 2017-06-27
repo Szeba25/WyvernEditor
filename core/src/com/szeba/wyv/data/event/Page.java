@@ -17,7 +17,7 @@ import com.szeba.wyv.widgets.dynamic.Dynamic;
  */
 public class Page {
 
-	private static TextFile paramList = new TextFile(Wyvern.INTERPRETER_DIR + "/preferences/events/event_params.ikd");
+	private static TextFile paramList = new TextFile(Wyvern.INTERPRETER_DIR + "/preferences/events/event_params.wdat");
 	
 	// Spriteset data
 	private String spriteDir;

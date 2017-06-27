@@ -291,13 +291,13 @@ public class Cell {
 		}
 		
 		// Write other data
-		TextFile t = new TextFile(map.getPath()+"/"+name+"/metadata.ikd", null);
+		TextFile t = new TextFile(map.getPath()+"/"+name+"/metadata.wdat", null);
 		t = constructMetadata(t, name, "default", getTileset());
 		t.save();
 		
 		// Write event data
-		TextFile t2 = new TextFile(map.getPath()+"/"+name+"/events.ikd", null);
-		TextFile t3 = new TextFile(map.getPath()+"/"+name+"/common_events.ikd", null);
+		TextFile t2 = new TextFile(map.getPath()+"/"+name+"/events.wdat", null);
+		TextFile t3 = new TextFile(map.getPath()+"/"+name+"/common_events.wdat", null);
 		for (Event ev : events.values()) {
 			if (ev.getReference() == null) {
 				ev.write(t2);
@@ -316,7 +316,7 @@ public class Cell {
 	}
 	
 	private void loadEvents() {
-		TextFile evf = new TextFile(map.getPath() + "/" + name + "/events.ikd");
+		TextFile evf = new TextFile(map.getPath() + "/" + name + "/events.wdat");
 		int index = 0;
 		while(true) {
 			Event event = new Event(0, 0, true, false);
@@ -333,7 +333,7 @@ public class Cell {
 	}
 	
 	private void loadCommonEvents() {
-		TextFile evf = new TextFile(map.getPath() + "/" + name + "/common_events.ikd");
+		TextFile evf = new TextFile(map.getPath() + "/" + name + "/common_events.wdat");
 		for (int i = 0; i < evf.getLength(); i++) {
 			Event event = new Event(0, 0, true, false);
 			int x = Integer.parseInt(evf.getValue(i, 1));
@@ -674,7 +674,7 @@ public class Cell {
 	}
 	
 	private void loadMetadata() {
-		TextFile meta = new TextFile(map.getPath()+"/"+name+"/metadata.ikd");
+		TextFile meta = new TextFile(map.getPath()+"/"+name+"/metadata.wdat");
 		tileset = meta.getValue(2, 1);
 		Wyvern.cache.getTileset(tileset).check();
 	}

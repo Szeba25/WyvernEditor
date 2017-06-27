@@ -29,7 +29,7 @@ public class CommandList extends List {
 	 */
 	private static HashMap<String, String> loadKeywords() {
 		HashMap<String, String> words = new HashMap<String, String>();
-		TextFile file = new TextFile(Wyvern.INTERPRETER_DIR + "/preferences/events/keywords.ikd");
+		TextFile file = new TextFile(Wyvern.INTERPRETER_DIR + "/preferences/events/keywords.wdat");
 		for (int i = 0; i < file.getLength(); i++) {
 			words.put(file.getValue(i, 0), file.getValue(i, 1));
 		}

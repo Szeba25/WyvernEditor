@@ -24,7 +24,7 @@ public class EventParamChanger extends DynamicPanel {
 	public EventParamChanger(int ox, int oy, int rx, int ry, int w, int h) {
 		super(null, ox, oy, rx, ry, w, h);
 		
-		this.loadWidgets(Wyvern.INTERPRETER_DIR + "/preferences/events/event_params_widget.ikd");
+		this.loadWidgets(Wyvern.INTERPRETER_DIR + "/preferences/events/event_params_widget.wdat");
 		
 		changeSprite = new Button(getX(), getY(), 290, 5, 200, 20, "change sprite");
 		spritePanel = new SpriteFrame(getX(), getY(), 290, 30, 200, 200);

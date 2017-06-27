@@ -179,7 +179,7 @@ public class NewMapPanel extends Widget {
 				FileUtilities.createFolders(finalPath + "/" + startingCellName);
 				
 				// Create metadata
-				TextFile t = new TextFile(finalPath + "/map_metadata.ikd", null);
+				TextFile t = new TextFile(finalPath + "/map_metadata.wdat", null);
 				t = GameMap.constructMetadata(t, cellSizeW.getText(), cellSizeH.getText(), 
 						maxCellX.getText(), maxCellY.getText(), 
 						startingCellX.getText(), startingCellY.getText(), 
@@ -189,7 +189,7 @@ public class NewMapPanel extends Widget {
 				t.save();
 				
 				// Create map ID and append counter by one
-				TextFile tid = new TextFile(finalPath + "/map_id.ikd", null);
+				TextFile tid = new TextFile(finalPath + "/map_id.wdat", null);
 				tid.addLine();
 				tid.addValue(Wyvern.getNextMapID());
 				tid.save();
@@ -200,15 +200,15 @@ public class NewMapPanel extends Widget {
 					PixmapIO.writePNG(new FileHandle(finalPath + "/" + startingCellName + "/" + Integer.toString(i) + ".png"), map);
 				}
 				// Create cell data
-				TextFile t2 = new TextFile(finalPath + "/" + startingCellName + "/events.ikd", null);
+				TextFile t2 = new TextFile(finalPath + "/" + startingCellName + "/events.wdat", null);
 				t2.save();
-				TextFile t5 = new TextFile(finalPath + "/" + startingCellName + "/common_events.ikd", null);
+				TextFile t5 = new TextFile(finalPath + "/" + startingCellName + "/common_events.wdat", null);
 				t5.save();
-				TextFile t3 = new TextFile(finalPath + "/" + startingCellName + "/metadata.ikd", null);
+				TextFile t3 = new TextFile(finalPath + "/" + startingCellName + "/metadata.wdat", null);
 				t3 = Cell.constructMetadata(t3, startingCellName, "default", 
 						this.tilesetPicker.getSelected().getOriginalName());
 				t3.save();
-				TextFile t4 = new TextFile(finalPath + "/places.ikd", null);
+				TextFile t4 = new TextFile(finalPath + "/places.wdat", null);
 				t4.addLine();
 				t4.addValue(0, "start");
 				t4.addValue(0, startingCellX.getText());

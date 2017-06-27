@@ -23,7 +23,7 @@ public class CommonEvents {
 	private boolean changed;
 	
 	public void load() {
-		TextFile evf = new TextFile(Wyvern.INTERPRETER_DIR + "/database/common_events.ikd");
+		TextFile evf = new TextFile(Wyvern.INTERPRETER_DIR + "/database/common_events.wdat");
 		events = new ArrayList<Event>();
 		int index = 0;
 		while(true) {
@@ -48,7 +48,7 @@ public class CommonEvents {
 	
 	public void save() {
 		if (changed) {
-			TextFile evf = new TextFile(Wyvern.INTERPRETER_DIR + "/database/common_events.ikd", null);
+			TextFile evf = new TextFile(Wyvern.INTERPRETER_DIR + "/database/common_events.wdat", null);
 			for (Event e : events) {
 				e.write(evf);
 			}

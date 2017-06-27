@@ -19,7 +19,7 @@ public class FileNameField extends TextField {
 		
 		restrictedChars = new HashSet<Character>();
 		allowedChars = new HashSet<Character>();
-		TextFile file = new TextFile(Wyvern.INTERPRETER_DIR + "/preferences/file_names.ikd");
+		TextFile file = new TextFile(Wyvern.INTERPRETER_DIR + "/preferences/file_names.wdat");
 		restricted = file.getValue(0, 0);
 		allowed = file.getValue(1, 0);
 				

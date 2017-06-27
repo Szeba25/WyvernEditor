@@ -67,7 +67,7 @@ public class Entries {
 		
 		// Load default entries
 		for (String s : entryTypes) {
-			TextFile tf = new TextFile(Wyvern.INTERPRETER_DIR + "/database/entries/" + s + "/default_item.ikd");
+			TextFile tf = new TextFile(Wyvern.INTERPRETER_DIR + "/database/entries/" + s + "/default_item.wdat");
 			defaultEntries.put(s, tf.getValue(0, 0));
 		}
 		
@@ -91,7 +91,7 @@ public class Entries {
 			if (entryData.get(db).getChanged()) {
 				entryData.get(db).unmarkChanged();
 				System.out.println("Database: entries in \"" + db + "\" saved!");
-				TextFile file = new TextFile(Wyvern.INTERPRETER_DIR + "/database/entries/" + db + "/items.ikd", null);
+				TextFile file = new TextFile(Wyvern.INTERPRETER_DIR + "/database/entries/" + db + "/items.wdat", null);
 				for (String data : entryData.get(db).getItems()) {
 					file.addLine();
 					file.addValue(data);

@@ -1,6 +1,7 @@
 package com.szeba.wyv.utilities;
 
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 import com.szeba.wyv.data.ListElement;
 
@@ -43,26 +44,13 @@ public final class StringUtilities {
 			return "";
 		}
 	}
-	
-	/** 
-	 * Split a string with the given string (split), and get the requested element from the 
-	 * result 
-	 */
-	public static String getNamePortion(String name, int index, String split) {
-		String[] values = safeSplit(name, split);
-		if (index < values.length) {
-			return values[index];
-		} else {
-			return "";
-		}
-	}
-	
-	/** 
+
+	/**
 	 * Crop a string to the given width in pixels (using the default font) 
 	 */
 	public static String cropString(String string, int maxWidth) {
 		// Get original text width
-		int textSize = (int) FontUtilities.getBounds(string).width;
+		int textSize = FontUtilities.getBounds(string).width;
 		// Reconstruct text, to contain only maxWidth pixel wide string
 		if (textSize > maxWidth) {
 			String newString = "";
@@ -143,7 +131,10 @@ public final class StringUtilities {
 		// We first add a * symbol to indicate end of line.
 		line += splitBy+"*";
 		//System.out.println(line);
-		String[] splitData = line.split(splitBy);
+
+		String[] splitData;
+		splitData = line.split(Pattern.quote(splitBy));
+
 		String[] finalData = new String[splitData.length-1];
 		for (int i = 0; i < splitData.length-1; i++) {
 			finalData[i] = splitData[i];

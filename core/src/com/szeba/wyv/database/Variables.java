@@ -49,8 +49,8 @@ public class Variables {
 		
 		changed = false;
 		
-		// Read data from the variables.ikd file
-		TextFile t = new TextFile(Wyvern.INTERPRETER_DIR + "/database/variables.ikd");
+		// Read data from the variables.wdat file
+		TextFile t = new TextFile(Wyvern.INTERPRETER_DIR + "/database/variables.wdat");
 		String currentCategory = "";
 		for (int i = 0; i < t.getLength(); i++) {
 			// We indicate a category with the [SUB] character.
@@ -80,7 +80,7 @@ public class Variables {
 		if (changed) {
 
 			// Create a new blank text file
-			TextFile t = new TextFile(Wyvern.INTERPRETER_DIR + "/database/variables.ikd", null);
+			TextFile t = new TextFile(Wyvern.INTERPRETER_DIR + "/database/variables.wdat", null);
 			
 			for (Entry<String, ArrayList<String>> entry : entries.entrySet()) {
 			    String key = entry.getKey();

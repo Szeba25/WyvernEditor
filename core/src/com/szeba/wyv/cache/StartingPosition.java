@@ -12,7 +12,7 @@ public class StartingPosition {
 	public int y;
 	
 	public StartingPosition() {
-		TextFile file = new TextFile(Wyvern.INTERPRETER_DIR + "/preferences/start.ikd");
+		TextFile file = new TextFile(Wyvern.INTERPRETER_DIR + "/preferences/start.wdat");
 		mapPath = file.getValue(0, 0);
 		cellX = Integer.parseInt(file.getValue(1, 0));
 		cellX = Integer.parseInt(file.getValue(2, 0));
@@ -21,7 +21,7 @@ public class StartingPosition {
 	}
 	
 	public void save() {
-		TextFile file = new TextFile(Wyvern.INTERPRETER_DIR + "/preferences/start.ikd", null);
+		TextFile file = new TextFile(Wyvern.INTERPRETER_DIR + "/preferences/start.wdat", null);
 		file.addLine();
 		file.addValue(mapPath);
 		file.addLine();

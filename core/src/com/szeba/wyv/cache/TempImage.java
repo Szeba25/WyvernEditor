@@ -59,7 +59,7 @@ public class TempImage {
 			System.out.println("TempImage: (n) image loaded " + imageDir + "/" + imageName);
 			
 			if (FileUtilities.isValidImage(finalPath)) {
-				if (StringUtilities.getExtension(imageName).equals("ikd")) {
+				if (StringUtilities.getExtension(imageName).equals("wdat")) {
 					// This image is a reference to a texture. Get the texture's name from the file.
 					TextFile tf = new TextFile(finalPath);
 					String textureDir = "";

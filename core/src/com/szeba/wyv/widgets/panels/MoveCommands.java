@@ -24,7 +24,7 @@ public class MoveCommands extends Widget {
 		super(ox, oy, rx, ry, 0, 550);
 		
 		// Read the text file containing the movement commands, and create buttons from them
-		TextFile file = new TextFile(Wyvern.INTERPRETER_DIR + "/preferences/move_commands.ikd");
+		TextFile file = new TextFile(Wyvern.INTERPRETER_DIR + "/preferences/move_commands.wdat");
 		int coloumn = 0;
 		int ypos = 0;
 		buttons = new Button[file.getLength()];

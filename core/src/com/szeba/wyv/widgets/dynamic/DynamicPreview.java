@@ -70,9 +70,9 @@ public class DynamicPreview extends Widget {
 		}
 		
 		this.createDynamic(false);
-		previewPanel.loadWidgets(Wyvern.DIRECTORY + "/core files/preview_panel.ikd");
+		previewPanel.loadWidgets(Wyvern.DIRECTORY + "/core files/preview_panel.wdat");
 		
-		this.setFileAttributes(FileUtilities.getFileAttributes(Wyvern.DIRECTORY + "/core files/preview_panel.ikd"));
+		this.setFileAttributes(FileUtilities.getFileAttributes(Wyvern.DIRECTORY + "/core files/preview_panel.wdat"));
 		
 		this.addWidget(close);
 		for (Button b : buttonArray) {
@@ -117,12 +117,12 @@ public class DynamicPreview extends Widget {
 		
 		// Reload widget
 		
-		BasicFileAttributes attrs = FileUtilities.getFileAttributes(Wyvern.DIRECTORY + "/core files/preview_panel.ikd");
+		BasicFileAttributes attrs = FileUtilities.getFileAttributes(Wyvern.DIRECTORY + "/core files/preview_panel.wdat");
 		if (!this.isEqualAttrs(attrs)) {
 			this.setFileAttributes(attrs);
 			try {
 				this.createDynamic(true);
-				this.previewPanel.loadWidgets(Wyvern.DIRECTORY + "/core files/preview_panel.ikd");
+				this.previewPanel.loadWidgets(Wyvern.DIRECTORY + "/core files/preview_panel.wdat");
 				System.out.println("Preview panel successfully loaded!");
 			} catch (Exception e) {
 				System.out.println("Preview panel syntax error...");
@@ -139,11 +139,11 @@ public class DynamicPreview extends Widget {
 		for (int x = 0; x < arr.size(); x++) {
 			
 			if (x == 1) {
-				String prefix = "." + Separator.fileIkdChar + "w" + 
-										Separator.fileIkdChar + "null" +
-										Separator.fileIkdChar + "null" +
-										Separator.fileIkdChar + param +
-										Separator.fileIkdChar;
+				String prefix = "." + Separator.fileWyvChar + "w" +
+										Separator.fileWyvChar + "null" +
+										Separator.fileWyvChar + "null" +
+										Separator.fileWyvChar + param +
+										Separator.fileWyvChar;
 				stringToClipboard += prefix;
 			}
 			
@@ -153,7 +153,7 @@ public class DynamicPreview extends Widget {
 				stringToClipboard += "\n";
 			}
 			if (x != arr.size()-1 && x != 0) {
-				stringToClipboard += Separator.fileIkdChar;
+				stringToClipboard += Separator.fileWyvChar;
 			}
 			if (x == arr.size()-1) {
 				stringToClipboard += "\n";

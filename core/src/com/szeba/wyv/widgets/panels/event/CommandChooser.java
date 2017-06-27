@@ -14,7 +14,7 @@ import com.szeba.wyv.widgets.List;
 import com.szeba.wyv.widgets.Widget;
 
 /**
- * From the CommandChooser you can select event commands, defined in the event_commands.ikd file.
+ * From the CommandChooser you can select event commands, defined in the event_commands.wdat file.
  * @author Szeba
  */
 public class CommandChooser extends Widget {
@@ -104,7 +104,7 @@ public class CommandChooser extends Widget {
 	
 	public void load() {
 		
-		TextFile file = new TextFile(Wyvern.INTERPRETER_DIR + "/preferences/events/event_commands.ikd");
+		TextFile file = new TextFile(Wyvern.INTERPRETER_DIR + "/preferences/events/event_commands.wdat");
 		String currentCategory = "";
 		String currentData = "";
 		

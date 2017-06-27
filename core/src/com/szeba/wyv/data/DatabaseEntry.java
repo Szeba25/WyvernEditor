@@ -30,13 +30,13 @@ public class DatabaseEntry {
 		path = Wyvern.INTERPRETER_DIR + "/database/entries/" + entryName;
 		
 		// Get the panel's size
-		TextFile file = new TextFile(path + "/widget_meta.ikd");
+		TextFile file = new TextFile(path + "/widget_meta.wdat");
 		int width = Integer.parseInt(file.getValue(0, 1));
 		int height = Integer.parseInt(file.getValue(0, 2));
 		
 		// Load the panel's widgets.
 		mainPanel = new DynamicPanel(entryName, 330, 80, 0, 0, width, height);
-		mainPanel.loadWidgets(path + "/widget.ikd");
+		mainPanel.loadWidgets(path + "/widget.wdat");
 		mainPanel.removeWidget(0);
 		mainPanel.removeWidget(0);
 		mainPanel.setVisible(false);
@@ -49,7 +49,7 @@ public class DatabaseEntry {
 	public void loadItems() {
 		items = new ArrayList<String>();
 		// Load items
-		TextFile file = new TextFile(path + "/items.ikd");
+		TextFile file = new TextFile(path + "/items.wdat");
 		for (int i = 0; i < file.getLength(); i++) {
 			items.add(file.getValue(i, 0));
 		}

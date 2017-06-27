@@ -24,7 +24,7 @@ public class DirListSprites extends DirList {
 				folders.add(new ListElement(str));
 			} else if (FileUtilities.isValidImage(path + "/" + str)) {
 				
-				if (StringUtilities.getExtension(str).equals("ikd")) {
+				if (StringUtilities.getExtension(str).equals("wdat")) {
 					folders.add(new ListElement(str, str, 6));
 				} else {
 					folders.add(new ListElement(str, str, 5));

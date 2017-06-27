@@ -75,7 +75,7 @@ public class AnimationFrame extends BaseFrame {
 			fileName = name;
 			
 			if (FileUtilities.exists(finalAccessPath)) {
-				TextFile file = new TextFile(finalAccessPath + "/metadata.ikd");
+				TextFile file = new TextFile(finalAccessPath + "/metadata.wdat");
 				
 				frames = new ArrayList<TempImage>();
 				

@@ -41,7 +41,7 @@ import com.szeba.wyv.widgets.ext.Warning;
 public class Wyvern implements ApplicationListener {
 	
 	// The current version number
-	public static final String VERSION = "v0.521";
+	public static final String VERSION = "v0.522";
 	
 	// The current working directory
 	public static String DIRECTORY;
@@ -364,7 +364,7 @@ public class Wyvern implements ApplicationListener {
 			if (FileUtilities.isValidMap(finalPath)) {
 				
 				// Read the signature ID in this file
-				TextFile file = new TextFile(finalPath + "/map_id.ikd");
+				TextFile file = new TextFile(finalPath + "/map_id.wdat");
 				
 				// Map the signature ID
 				String sigid = file.getValue(0, 0);
@@ -399,7 +399,7 @@ public class Wyvern implements ApplicationListener {
 				System.out.println("Editor: ID change in: " + f.getName());
 				
 				// Replace the ID in this file!!!
-				TextFile file = new TextFile(finalPath + "/map_id.ikd");
+				TextFile file = new TextFile(finalPath + "/map_id.wdat");
 				file.setValue(0, 0, Wyvern.getNextMapID());
 				file.save();
 			}

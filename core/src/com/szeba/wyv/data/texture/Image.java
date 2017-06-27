@@ -13,7 +13,7 @@ import com.szeba.wyv.utilities.FileUtilities;
 import com.szeba.wyv.utilities.StringUtilities;
 
 /**
- * An advanced texture region, that can be .png file itself, or a .ikd file, that
+ * An advanced texture region, that can be .png file itself, or a .wdat file, that
  * defines a texture region.
  * The object comes with an internal static method, to get Images. (getImage())
  * @author Szeba
@@ -106,7 +106,7 @@ public class Image extends TextureRegion {
 				// Reload the Image and check it's new texture!
 				
 				if (FileUtilities.isValidImage(imgAbsolutePath)) {
-					if (StringUtilities.getExtension(imgName).equals("ikd")) {
+					if (StringUtilities.getExtension(imgName).equals("wdat")) {
 						// This image is a reference to a texture. Get the texture's name from the file.
 						TextFile tf = new TextFile(imgAbsolutePath);
 						textureName = tf.getValue(0, 0);

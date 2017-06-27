@@ -24,7 +24,7 @@ public class DesktopLauncher {
 		String workingDirectory = getWorkingDirectory();
 		
 		// Get the current interpreter name
-		TextFile file = new TextFile(workingDirectory + "/core files/interpreter.ikd");
+		TextFile file = new TextFile(workingDirectory + "/core files/interpreter.wdat");
 		String interpreter = file.getValue(0, 0);
 		
 		// Redirect the output stream
@@ -48,7 +48,7 @@ public class DesktopLauncher {
 		cfg.addIcon(workingDirectory + "/core files/icons/current/icon.png", FileType.Absolute);
 		
 		// Get the fps counts
-		TextFile file2 = new TextFile(workingDirectory + "/core files/main_config.ikd");
+		TextFile file2 = new TextFile(workingDirectory + "/core files/main_config.wdat");
 		
 		cfg.foregroundFPS = Integer.parseInt(file2.getValue(0, 1));
 		cfg.backgroundFPS = Integer.parseInt(file2.getValue(1, 1));

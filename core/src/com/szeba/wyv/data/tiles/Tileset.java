@@ -60,7 +60,7 @@ public class Tileset {
 		checkForAccessPath();
 		
 		// Load the metadata
-		TextFile metadata = new TextFile(path + "/metadata.ikd");
+		TextFile metadata = new TextFile(path + "/metadata.wdat");
 		tileSize = Integer.parseInt(metadata.getValue(0, 1));
 		
 		createMainTexture();
@@ -246,13 +246,13 @@ public class Tileset {
 	
 	public void save() {
 		setChanged(false);
-		arrayStringConv(obstructions[0], "/obstructions/obst_up.ikd").save();
-		arrayStringConv(obstructions[1], "/obstructions/obst_right.ikd").save();
-		arrayStringConv(obstructions[2], "/obstructions/obst_down.ikd").save();
-		arrayStringConv(obstructions[3], "/obstructions/obst_left.ikd").save();
-		arrayStringConv(terrainData, "/terrain_data.ikd").save();
-		arrayStringConv(layerData, "/layer_data.ikd").save();
-		TextFile file = new TextFile(path + "/animations.ikd", null);
+		arrayStringConv(obstructions[0], "/obstructions/obst_up.wdat").save();
+		arrayStringConv(obstructions[1], "/obstructions/obst_right.wdat").save();
+		arrayStringConv(obstructions[2], "/obstructions/obst_down.wdat").save();
+		arrayStringConv(obstructions[3], "/obstructions/obst_left.wdat").save();
+		arrayStringConv(terrainData, "/terrain_data.wdat").save();
+		arrayStringConv(layerData, "/layer_data.wdat").save();
+		TextFile file = new TextFile(path + "/animations.wdat", null);
 		for (ArrayList<Point> tps : animations) {
 			file.addLine();
 			for (Point p : tps) {
@@ -272,16 +272,16 @@ public class Tileset {
 	private void loadData() {
 		// Get obstructions, terrain, and layer data.
 		obstructions = new String[4][48][48];
-		obstructions[0] = stringArrayConv(new TextFile(path + "/obstructions/obst_up.ikd"));
-		obstructions[1] = stringArrayConv(new TextFile(path + "/obstructions/obst_right.ikd"));
-		obstructions[2] = stringArrayConv(new TextFile(path + "/obstructions/obst_down.ikd"));
-		obstructions[3] = stringArrayConv(new TextFile(path + "/obstructions/obst_left.ikd"));
+		obstructions[0] = stringArrayConv(new TextFile(path + "/obstructions/obst_up.wdat"));
+		obstructions[1] = stringArrayConv(new TextFile(path + "/obstructions/obst_right.wdat"));
+		obstructions[2] = stringArrayConv(new TextFile(path + "/obstructions/obst_down.wdat"));
+		obstructions[3] = stringArrayConv(new TextFile(path + "/obstructions/obst_left.wdat"));
 		terrainData = new String[48][48];
-		terrainData = stringArrayConv(new TextFile(path + "/terrain_data.ikd"));
+		terrainData = stringArrayConv(new TextFile(path + "/terrain_data.wdat"));
 		layerData = new String[48][48];
-		layerData = stringArrayConv(new TextFile(path + "/layer_data.ikd"));
+		layerData = stringArrayConv(new TextFile(path + "/layer_data.wdat"));
 		animations = new ArrayList<ArrayList<Point>>();
-		TextFile animFile = new TextFile(path + "/animations.ikd");
+		TextFile animFile = new TextFile(path + "/animations.wdat");
 		for (int i = 0; i < animFile.getLength(); i++) {
 			ArrayList<Point> list = new ArrayList<Point>();
 			animations.add(list);

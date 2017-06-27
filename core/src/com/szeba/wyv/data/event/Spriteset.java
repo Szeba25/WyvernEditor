@@ -65,7 +65,7 @@ public class Spriteset {
 		
 		if (FileUtilities.isValidSpriteset(checkedPath)) {
 			// Load the metadata, and load the images!
-			metadata = new TextFile(checkedPath + "/metadata.ikd");
+			metadata = new TextFile(checkedPath + "/metadata.wdat");
 			for (int i = 0; i < metadata.getLength(); i++) {
 				images.add(Wyvern.cache.getImage(dir + "/" + name,
 						metadata.getValue(i, 0)));

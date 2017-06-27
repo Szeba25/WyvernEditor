@@ -161,10 +161,19 @@ public class TextField extends Widget {
 	protected void modifyText(String text) {
 		String newText = "";
 		for (int i = 0; i < text.length(); i++) {
-			if (text.charAt(i) > 128) {
+			if (text.charAt(i) == this.customNewLine.charAt(0)) {
+				newText += text.charAt(i);
+			} else if (text.charAt(i) > 128) {
 				newText += (char)35; // Replace with #...
-			} else if (text.charAt(i) < 32 && text.charAt(i) != 25) {
-				newText += (char)35; // Replace with #... if its not a custom new line.
+			} else if (text.charAt(i) < 32) {
+				newText += (char)35; // Replace with #...
+			} else if (text.charAt(i) == Separator.fileWyvChar.charAt(0) ||
+					text.charAt(i) == Separator.dataUnit.charAt(0) ||
+					text.charAt(i) == Separator.listElement.charAt(0) ||
+					text.charAt(i) == Separator.array.charAt(0) ||
+					text.charAt(i) == Separator.dynParameter.charAt(0)) {
+				// This is the case with any separator!
+				newText += (char)35; // Replace with #...
 			} else {
 				newText += text.charAt(i);
 			}
