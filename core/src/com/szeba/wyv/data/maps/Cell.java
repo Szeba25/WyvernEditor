@@ -21,10 +21,7 @@ import com.szeba.wyv.data.geometry.Box;
 import com.szeba.wyv.data.tiles.Tile;
 import com.szeba.wyv.data.tiles.TileData;
 import com.szeba.wyv.data.tiles.Tileset;
-import com.szeba.wyv.utilities.FileUtilities;
-import com.szeba.wyv.utilities.MathUtilities;
-import com.szeba.wyv.utilities.Palette;
-import com.szeba.wyv.utilities.ShapePainter;
+import com.szeba.wyv.utilities.*;
 
 /**
  * All the maps are composed of cells. Cells hold the terrain, and event
@@ -81,11 +78,12 @@ public class Cell {
 		File tempFile = new File(map.getPath()+"/"+name);
 		if (tempFile.exists()) {
 			loadMetadata();
-			loadTileData(0);
-			loadTileData(1);
-			loadTileData(2);
-			loadTileData(3);
-			loadTileData(4);
+			TextFile file = new TextFile(map.getPath() + "/" + name + "/layers.wdat");
+			loadTileData(file, 0, 1);
+			loadTileData(file,1, 1 + (file.getLength()/5) * 1);
+			loadTileData(file,2, 1 + (file.getLength()/5) * 2);
+			loadTileData(file,3, 1 + (file.getLength()/5) * 3);
+			loadTileData(file,4, 1 + (file.getLength()/5) * 4);
 			loadEvents();
 			loadCommonEvents();
 			valid = true;
@@ -272,23 +270,21 @@ public class Cell {
 		if (!f.exists()) {
 			FileUtilities.createFolders(map.getPath()+"/"+name);
 		}
-		
-		for (int layer = 0; layer < 5; layer++) {
-			Pixmap pixmap = new Pixmap(w, h, Pixmap.Format.RGBA8888);
-			for (int x = 0; x < w; x++) {
-				for (int y = 0; y < h; y++) {
-					float r = (float) tiles[x][y].getX(layer);
-					float g = (float) tiles[x][y].getY(layer);
-					float b = (float) tiles[x][y].getType(layer) + 1;
 
-					// We modified the saving method to use full alpha.
-					pixmap.setColor(new Color(r/255.0f, g/255.0f, b/255.0f, 1.0f));
-					pixmap.drawPixel(x, y);
+		TextFile td = new TextFile(map.getPath()+"/"+name+"/"+"layers.wdat",null);
+
+		for (int layer = 0; layer < 5; layer++) {
+			td.addLine();
+			td.addValue("@"+layer);
+			for (int y = 0; y < h; y++) {
+				td.addLine();
+				for (int x = 0; x < w; x++) {
+					Tile tile = tiles[x][y];
+					td.addValue(tile.getAsDataString(layer));
 				}
 			}
-			PixmapIO.writePNG(new FileHandle(map.getPath()+"/"+name+"/"+layer+".png"), pixmap);
-			pixmap.dispose();
 		}
+		td.save();
 		
 		// Write other data
 		TextFile t = new TextFile(map.getPath()+"/"+name+"/metadata.wdat", null);
@@ -693,27 +689,17 @@ public class Cell {
 		return ((y%6)*8) + (x%8);
 	}
 
-	private void loadTileData(int id) {
-		// The pixmap from where we will get color values
-		Pixmap pixmap = new Pixmap(new FileHandle(map.getPath() + "/" + name + "/" + id + ".png"));
-		// Create the current color
-		Color color = new Color();
-		// Iterate over the pixmap data, and manipulate the cell's data.
+	private void loadTileData(TextFile file, int id, int filePos) {
+		// Iterate over the data, and manipulate the cell's data.
 		for (int x = 0; x < w; x++) {
 			for (int y = 0; y < h; y++) {
-				// We got the color index
-				int colorValue = 0;
-				if (x < pixmap.getWidth() && y < pixmap.getHeight()) {
-					colorValue = pixmap.getPixel(x, y);
-				}
-				// Convert this color value to an RGBA color
-				Color.rgba8888ToColor(color, colorValue);
-				// Get the R and G color values
-				int cr = (int)(color.r * 255.0f);
-				int cg = (int)(color.g * 255.0f);
-				int cb = (int)(color.b * 255.0f);
 
-				// We need to figure 'ca' out.
+				String data[] = StringUtilities.safeSplit(file.getValue(filePos + y, x), "x");
+
+				int merged = Integer.parseInt(data[0], 16);
+				int cr = merged % 48;
+				int cg = merged / 48;
+				int cb = Integer.parseInt(data[1], 16);
 				int ca = calculateAutoIndex(cr, cg);
 
 				// cb contains the autotile data
@@ -725,7 +711,6 @@ public class Cell {
 				}
 			}
 		}
-		pixmap.dispose();
 	}
 	
 	/** 

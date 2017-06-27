@@ -193,13 +193,22 @@ public class NewMapPanel extends Widget {
 				tid.addLine();
 				tid.addValue(Wyvern.getNextMapID());
 				tid.save();
-				
-				// Create the starting cell
-				Pixmap map = new Pixmap(30, 30, Pixmap.Format.RGBA8888);
-				for (int i = 0; i < 5; i++) {
-					PixmapIO.writePNG(new FileHandle(finalPath + "/" + startingCellName + "/" + Integer.toString(i) + ".png"), map);
-				}
+
 				// Create cell data
+				TextFile td = new TextFile(finalPath + "/" + startingCellName + "/layers.wdat", null);
+
+				for (int z = 0; z < 5; z++) {
+					td.addLine();
+					td.addValue("@"+z);
+					for (int y = 0; y < Integer.parseInt(cellSizeH.getText()); y++) {
+						td.addLine();
+						for (int x = 0; x < Integer.parseInt(cellSizeW.getText()); x++) {
+							td.addValue("0x0");
+						}
+					}
+				}
+
+				td.save();
 				TextFile t2 = new TextFile(finalPath + "/" + startingCellName + "/events.wdat", null);
 				t2.save();
 				TextFile t5 = new TextFile(finalPath + "/" + startingCellName + "/common_events.wdat", null);
