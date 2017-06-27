@@ -1,12 +1,7 @@
 package com.szeba.wyv.data.files;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -42,7 +37,7 @@ public class TextFile {
 		this.path = path;
 		lines = new ArrayList<ArrayList<String>>();
 		
-		// Inputstream.
+		// Check for the file
 		File tempFile = new File(path);
 		
 		if (!tempFile.exists()) {
@@ -50,13 +45,16 @@ public class TextFile {
 			return;
 		}
 		
-		// Filehandle
-		FileHandle handle = new FileHandle(tempFile);
-		InputStream is = handle.read();
-		
-		// Create buffered reader from the stream
-		BufferedReader r = new BufferedReader(new InputStreamReader(is));
-		
+		// Create input streams
+		FileInputStream is = null;
+		try {
+			is = new FileInputStream(tempFile);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		InputStreamReader isr = new InputStreamReader(is, StandardCharsets.UTF_8);
+		BufferedReader r = new BufferedReader(isr);
+
 		// The line variable holding the current readed line
 		String line;
 		
@@ -78,7 +76,7 @@ public class TextFile {
 					System.out.println(finalData[i]);
 				}
 				*/
-				
+
 				ArrayList<String> list = new ArrayList<String>(Arrays.asList(finalData));
 				
 				// Add list to lines
@@ -87,8 +85,10 @@ public class TextFile {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		// Close the stream
+		// Close the streams
 		try {
+			r.close();
+			isr.close();
 			is.close();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -123,8 +123,10 @@ public class TextFile {
 	 */
 	public void save() {
 		try {
-			FileWriter writer = new FileWriter(path, false);
+			FileOutputStream fst = new FileOutputStream(path);
+			OutputStreamWriter writer = new OutputStreamWriter(fst, StandardCharsets.UTF_8);
 			BufferedWriter out = new BufferedWriter(writer);
+
 			for (ArrayList<String> arr : lines) {
 				String writed = "";
 				for (int i = 0; i < arr.size(); i++) {
@@ -150,6 +152,7 @@ public class TextFile {
 			}
 			out.close();
 			writer.close();
+			fst.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
