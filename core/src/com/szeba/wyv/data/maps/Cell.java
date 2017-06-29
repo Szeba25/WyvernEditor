@@ -157,9 +157,9 @@ public class Cell {
 	 * Exports this cell as a PNG image.
 	 */
 	public void exportCell(String magenta, int ignored) {
-		// We cant blit alpha textures without this.
+		// Enable alpha channel here
 		Pixmap.setBlending(Blending.SourceOver);
-		
+
 		// Process the cell.
 		Tileset currentTileset = Wyvern.cache.getTileset(tileset);
 		int tsize = currentTileset.getTileSize();
@@ -219,11 +219,6 @@ public class Cell {
 							// If a tile above this tile is already colored, color it again.
 							// We need to color again, as it contains the ignored parts.
 							if (y-1 >= 0) {
-								
-								// This below made no sense at all...
-								//int aboveTileX = this.getTile(x, y-1).getX(z);
-								//int aboveTileY = this.getTile(x, y-1).getY(z);
-								
 								if (colored[x][y-1]) {
 									finalImage.drawPixmap(rect, 
 											x*tsize, 
@@ -256,7 +251,8 @@ public class Cell {
 		finalImage.dispose();
 		tilesetImage.dispose();
 		rect.dispose();
-		// IMPORTANT.
+
+		// Set back blending to None
 		Pixmap.setBlending(Blending.None);
 	}
 	
@@ -271,8 +267,8 @@ public class Cell {
 			FileUtilities.createFolders(map.getPath()+"/"+name);
 		}
 
+		// Write terrain data
 		TextFile td = new TextFile(map.getPath()+"/"+name+"/"+"layers.wdat",null);
-
 		for (int layer = 0; layer < 5; layer++) {
 			td.addLine();
 			td.addValue("@"+layer);

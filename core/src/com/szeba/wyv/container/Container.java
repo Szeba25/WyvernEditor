@@ -63,12 +63,6 @@ public abstract class Container {
 	 */
 	public final void draw(SpriteBatch batch) {
 		if (isVisible()) {
-			
-			// Drawing debug
-			if (Wyvern.input.isKeyPressed(Keys.F7)) {
-				System.out.println("Draw: " + this);
-			}
-			
 			mainDraw(batch);
 			for (int i = widgets.size()-1; i >= 0; i--) {
 				widgets.get(i).draw(batch);
@@ -115,13 +109,6 @@ public abstract class Container {
 	public final void update(int scrolled) {
 		if (isVisible() && isFocused()) {
 			// Update this container
-			
-			// Updating debug
-			if (Wyvern.input.isKeyPressed(Keys.F7)) {
-				System.out.println("Update: " + this);
-			}
-			
-			//mainUpdate(scrolled);
 			// If there is a modal widget, update it, and skip the other update
 			if (!modalWidgetUpdate(scrolled)) {
 				// Set update delay to false if the user releases the left mouse button

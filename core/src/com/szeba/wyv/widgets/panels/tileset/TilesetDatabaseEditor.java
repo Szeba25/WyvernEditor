@@ -8,6 +8,7 @@ import com.szeba.wyv.data.Signal;
 import com.szeba.wyv.data.tiles.Tileset;
 import com.szeba.wyv.utilities.Palette;
 import com.szeba.wyv.utilities.ShapePainter;
+import com.szeba.wyv.widgets.Button;
 import com.szeba.wyv.widgets.Widget;
 import com.szeba.wyv.widgets.ext.BulletBoard;
 import com.szeba.wyv.widgets.ext.TextBorderless;
@@ -21,6 +22,8 @@ public class TilesetDatabaseEditor extends Widget {
 	private BulletBoard toolBullet;
 	private TextBorderless terrainText;
 	private IntField terrainTag;
+	private IntField padValue;
+	private Button padButton;
 	
 	public TilesetDatabaseEditor(int ox, int oy, int rx, int ry, int w, int h) {
 		super(ox, oy, rx, ry, w, h);
@@ -46,12 +49,18 @@ public class TilesetDatabaseEditor extends Widget {
 		terrainTag.setText("0");
 		terrainText.setVisible(false);
 		terrainTag.setVisible(false);
+
+		padValue = new IntField(getX(), getY(), 600, 130, 40, "Z+", 99);
+		padValue.setText("1");
+		padButton = new Button(getX(), getY(),645, 130, 100, 17, "apply padding");
 		
 		addWidget(tilesetList);
 		addWidget(tilesetPanel);
 		addWidget(toolBullet);
 		addWidget(terrainText);
 		addWidget(terrainTag);
+		addWidget(padValue);
+		addWidget(padButton);
 	}
 
 	@Override
@@ -60,6 +69,11 @@ public class TilesetDatabaseEditor extends Widget {
 		sg = tilesetList.getSignal();
 		if (sg != null) {
 			tilesetPanel.setActiveTileset(sg.getParam(0));
+		}
+		sg = padButton.getSignal();
+		if (sg != null && tilesetPanel.getActiveTileset() != null) {
+			Wyvern.cache.getTileset(
+					tilesetPanel.getActiveTileset()).savePadded(Integer.parseInt(padValue.getValue()));
 		}
 		
 		tilesetPanel.changeTool(toolBullet.getSelectedID());

@@ -237,7 +237,6 @@ public class DirList extends List {
 			FileUtils.moveDirectory(f2, f1);
 			succeed = true;
 		} catch (IOException e) {
-			e.printStackTrace();
 			succeed = false;
 		}
 

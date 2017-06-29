@@ -7,12 +7,14 @@ import java.util.ArrayList;
 
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Pixmap;
+import com.badlogic.gdx.graphics.PixmapIO;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.szeba.wyv.Wyvern;
 import com.szeba.wyv.data.files.TextFile;
 import com.szeba.wyv.utilities.FileUtilities;
 import com.szeba.wyv.utilities.StringUtilities;
+import com.szeba.wyv.widgets.ext.Warning;
 
 /** 
  * A tileset represents a preset with 16*48 regular tiles, and 32 autotiles.
@@ -30,7 +32,7 @@ public class Tileset {
 	// Changed state
 	private boolean changed;
 	
-	// The tilesize in pixels. It's calculated by dividing the tileset height by 48
+	// The tilesize in pixels
 	private int tileSize;
 	
 	// The reference image dates
@@ -307,6 +309,101 @@ public class Tileset {
 	
 	private boolean isEqualAttrs(BasicFileAttributes attrs) {
 		return timeModified.compareTo(attrs.lastModifiedTime()) == 0;
+	}
+
+	public void savePadded(int px) {
+
+		if (px > 1) {
+			Warning.showWarning("Larger than 1px padding is not supported (yet)");
+			return;
+		}
+
+		Pixmap terrain = new Pixmap(new FileHandle(path + "/terrain.png"));
+
+		int realTileCountX = terrain.getWidth()/this.getTileSize();
+		int realTileCountY = terrain.getHeight()/this.getTileSize();
+		int newX = terrain.getWidth() + (realTileCountX * 2 * px);
+		int newY = terrain.getHeight() + (realTileCountY * 2 * px);
+		int paddedTileSize = getTileSize() + (2*px);
+		Pixmap padded = new Pixmap(newX, newY, Pixmap.Format.RGBA8888);
+
+		for (int x = 0; x < realTileCountX; x++) {
+			for (int y = 0; y < realTileCountY; y++) {
+				// Main part
+				padded.drawPixmap(terrain,
+						x*getTileSize(),
+						y*getTileSize(),
+						getTileSize(), getTileSize(),
+						x*paddedTileSize + px,
+						y*paddedTileSize,
+						getTileSize(), getTileSize());
+				padded.drawPixmap(terrain,
+						x*getTileSize(),
+						y*getTileSize(),
+						getTileSize(), getTileSize(),
+						x*paddedTileSize + px,
+						y*paddedTileSize + (2*px),
+						getTileSize(), getTileSize());
+				padded.drawPixmap(terrain,
+						x*getTileSize(),
+						y*getTileSize(),
+						getTileSize(), getTileSize(),
+						x*paddedTileSize,
+						y*paddedTileSize + px,
+						getTileSize(), getTileSize());
+				padded.drawPixmap(terrain,
+						x*getTileSize(),
+						y*getTileSize(),
+						getTileSize(), getTileSize(),
+						x*paddedTileSize + (2*px),
+						y*paddedTileSize + px,
+						getTileSize(), getTileSize());
+				// The four corners
+				padded.drawPixmap(terrain,
+						x*getTileSize(),
+						y*getTileSize(),
+						px, px,
+						x*paddedTileSize,
+						y*paddedTileSize,
+						px, px);
+				padded.drawPixmap(terrain,
+						x*getTileSize() + (getTileSize()-px),
+						y*getTileSize() + (getTileSize()-px),
+						px, px,
+						x*paddedTileSize + (paddedTileSize-px),
+						y*paddedTileSize + (paddedTileSize-px),
+						px, px);
+				padded.drawPixmap(terrain,
+						x*getTileSize() + (getTileSize()-px),
+						y*getTileSize(),
+						px, px,
+						x*paddedTileSize + (paddedTileSize-px),
+						y*paddedTileSize,
+						px, px);
+				padded.drawPixmap(terrain,
+						x*getTileSize(),
+						y*getTileSize() + (getTileSize()-px),
+						px, px,
+						x*paddedTileSize,
+						y*paddedTileSize + (paddedTileSize-px),
+						px, px);
+				// The main tile
+				padded.drawPixmap(terrain,
+						x*getTileSize(),
+						y*getTileSize(),
+						getTileSize(), getTileSize(),
+						x*paddedTileSize + px,
+						y*paddedTileSize + px,
+						getTileSize(), getTileSize());
+			}
+		}
+
+		PixmapIO.writePNG(new FileHandle(path+"/terrain_" + px + "px.png"), padded);
+
+		terrain.dispose();
+		padded.dispose();
+
+		System.out.println("Tileset: " + this.getName() + " saved with " + px + "px padding!");
 	}
 
 }

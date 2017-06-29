@@ -41,7 +41,7 @@ import com.szeba.wyv.widgets.ext.Warning;
 public class Wyvern implements ApplicationListener {
 	
 	// The current version number
-	public static final String VERSION = "v0.526";
+	public static final String VERSION = "v0.527";
 	
 	// The current working directory
 	public static String DIRECTORY;
@@ -124,11 +124,11 @@ public class Wyvern implements ApplicationListener {
 		// Set the current inputprocessor (we set this processor, so we can poll for the mouse wheel)
 		Gdx.input.setInputProcessor(Wyvern.input);
 		
-		// Set pixmap blending to none instead of sourceover... (eliminates some bugs with pixmap drawing)
-		Pixmap.setBlending(Blending.None);
-		
 		// Map the game map IDs to print errors
 		mapGameMapIDs();
+
+		// Disable alpha values when drawing pixmaps
+		Pixmap.setBlending(Blending.None);
 	}
 
 	@Override
@@ -151,11 +151,6 @@ public class Wyvern implements ApplicationListener {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		// Set the camera to this batch
 		batch.setProjectionMatrix(camera.combined);
-		
-		// Update the print cycle button
-		if (input.isKeyPressed(Keys.F7)) {
-			System.out.println("--- Cycle start ---");
-		}
 		
 		// Schedule audio unload
 		Wyvern.cache.scheduleMusicUnload();
