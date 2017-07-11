@@ -692,10 +692,10 @@ public class Cell {
 
 				String data[] = StringUtilities.safeSplit(file.getValue(filePos + y, x), "x");
 
-				int merged = Integer.parseInt(data[0], 16);
+				int merged = Integer.parseInt(data[0]);
 				int cr = merged % 48;
 				int cg = merged / 48;
-				int cb = Integer.parseInt(data[1], 16);
+				int cb = Integer.parseInt(data[1]);
 				int ca = calculateAutoIndex(cr, cg);
 
 				// cb contains the autotile data

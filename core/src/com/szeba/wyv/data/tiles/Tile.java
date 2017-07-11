@@ -60,8 +60,8 @@ public class Tile {
 	}
 
 	public String getAsDataString(int layer) {
-		return Integer.toHexString(getX(layer) + getY(layer)*48) + "x" +
-				Integer.toHexString(getType(layer) + 1);
+		return Integer.toString(getX(layer) + getY(layer)*48) + "x" +
+				Integer.toString(getType(layer) + 1);
 	}
 	
 	public void setData(int layer, int type, int index, int x, int y) {
