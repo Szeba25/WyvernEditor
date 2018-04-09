@@ -739,7 +739,7 @@ public class MainScreen extends GeneralScreen {
 			// Run the TERMINAL launcher on linux
 			String[] cmdarray = new String[3];
 			cmdarray[0] = "sh";
-			cmdarray[1] = "linux_launcher";
+			cmdarray[1] = "linux_launcher.sh";
 			cmdarray[2] = Wyvern.INTERPRETER_DIR;
 			File dir = new File(Wyvern.INTERPRETER_DIR);
 			ProcessBuilder pb = new ProcessBuilder(cmdarray);
