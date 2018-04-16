@@ -53,9 +53,9 @@ public class Variables {
 		TextFile t = new TextFile(Wyvern.INTERPRETER_DIR + "/database/variables.wdat");
 		String currentCategory = "";
 		for (int i = 0; i < t.getLength(); i++) {
-			// We indicate a category with the [SUB] character.
+			// We indicate a category with the array character.
 			if (t.getLine(i).size() > 0 && t.getValue(i, 0).length() > 0 && 
-					t.getValue(i, 0).charAt(0) == (char)26) {
+					t.getValue(i, 0).charAt(0) == Separator.array.charAt(0)) {
 				currentCategory = t.getValue(i, 1);
 				entries.put(currentCategory, new ArrayList<String>());
 			} else if (currentCategory.length() > 0) {
