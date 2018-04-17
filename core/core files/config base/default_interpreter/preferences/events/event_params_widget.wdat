@@ -1,0 +1,60 @@
+.|w|A0|variabledatabase0|button|5|50|40|17|var
+.|w|A1|variabledatabase1|button|5|70|40|17|var
+.|w|A2|variabledatabase2|button|5|90|40|17|var
+.|w|A3|variabledatabase3|button|5|110|40|17|var
+
+0|w|var0|B0|holdervariable|50|50|120|17|
+1|w|var1|B1|holdervariable|50|70|120|17|
+2|w|var2|B2|holdervariable|50|90|120|17|
+3|w|var3|B3|holdervariable|50|110|120|17|
+
+.|mw|variabledatabase0|var0|vardb|0|0
+.|mw|variabledatabase1|var1|vardb|0|0
+.|mw|variabledatabase2|var2|vardb|0|0
+.|mw|variabledatabase3|var3|vardb|0|0
+
+.|w|DLB0|DL0|button|200|50|15|17|..
+.|w|DLB1|DL1|button|200|70|15|17|..
+.|w|DLB2|DL2|button|200|90|15|17|..
+.|w|DLB3|DL3|button|200|110|15|17|..
+
+.|mw|DL0|drp0|droplist|200|66|50|5|$%=$%<$%>$%<=$%>=
+.|mw|DL1|drp1|droplist|200|86|50|5|$%=$%<$%>$%<=$%>=
+.|mw|DL2|drp2|droplist|200|106|50|5|$%=$%<$%>$%<=$%>=
+.|mw|DL3|drp3|droplist|200|126|50|5|$%=$%<$%>$%<=$%>=
+
+4|w|drp0|B4|text|175|50|24|17|=
+5|w|drp1|B5|text|175|70|24|17|=
+6|w|drp2|B6|text|175|90|24|17|=
+7|w|drp3|B7|text|175|110|24|17|=
+
+8|w|txt0|tx0|textfield|220|50|55|1
+9|w|txt1|tx1|textfield|220|70|55|1
+10|w|txt2|tx2|textfield|220|90|55|1
+11|w|txt3|tx3|textfield|220|110|55|1
+
+12|w|swb0|swb|switchbutton|5|135|120|26|move anim: off|move anim: on
+13|w|swb1|swb|switchbutton|5|165|120|26|stop anim: off|stop anim: on
+14|w|swb2|swb|switchbutton|5|195|120|26|directional fix: off|directional fix: on
+15|w|swb3|swb|switchbutton|5|225|120|26|material|non material
+16|w|swb4|swb|switchbutton|5|255|120|26|on top: off|on top: on
+17|w|swb5|swb|switchbutton|5|285|120|26|on bottom: off|on bottom: on
+
+18|w|bullet0|bulletb0|bulletboard|130|135|140|$%activating$%touching$%touched by$%autorun$%paralell
+19|w|bullet1|bulletb1|bulletboard|130|240|140|$%none/custom$%random$%approach$%flee
+
+.|w|callmovec|movecUI|button|290|235|200|20|set movement pattern
+20|mw|movecUI|noparamset|movec|0|0|false
+.|w|text0|null|text|5|325|0|0|Speed / Frequency:
+21|w|30|null|intfield|5|345|60|Z+|9999
+.|w|31|null|text|5|365|0|0|Graphics offset X/Y:
+22|w|32|null|intfield|5|385|60|Z|999
+23|w|33|null|intfield|70|385|60|Z|999
+24|w|34|null|intfield|70|345|60|N|9999
+
+.|w|35|null|text|290|270|0|0|Ignore impassable:
+25|w|36|null|switchbutton|420|270|70|17|off|on
+.|w|37|null|text|140|325|0|0|Sound in movement (sound 1/2):
+.|w|38|null|text|140|506|350|1|
+26|w|39|null|audiopicker|140|345|350|160
+27|w|40|null|audiopicker|140|506|350|160

@@ -1,0 +1,708 @@
+#|Picture
+
+-|Show picture|3
+*d|Show picture|0|0|$]|1
+
+s|580|320
+
+.|w|0a|null|text|5|5|0|0|Select image file:
+.|w|0|null|text|360|5|0|0|X coordinate:
+.|w|1|null|text|360|60|0|0|Y coordinate:
+0|w|2|7|varnum|360|25
+1|w|3|8|varnum|360|80
+2|w|4|null|imagepicker|pictures|5|25|350
+.|w|5|null|text|360|125|0|0|Image index (1-50):
+3|w|6|null|intfield|495|125|50|Z+|50
+.|mw|7|2|vardb|0|0
+.|mw|8|3|vardb|0|0
+
+-|Move picture|3
+*d|Move picture|1|0|0|15
+
+s|300|225
+
+.|w|0|null|text|5|85|0|0|New X coordinate:
+.|w|1|null|text|5|135|0|0|New Y coordinate:
+.|w|2|null|text|5|5|0|0|Image index (1-50):
+0|w|3|null|intfield|5|25|40|Z+|50
+1|w|4|8|varnum|5|104
+2|w|5|9|varnum|5|154
+.|w|6|null|text|5|45|0|0|Time (in frames):
+3|w|7|null|intfield|5|65|40|N|9999
+.|mw|8|4|vardb|0|0
+.|mw|9|5|vardb|0|0
+
+-|Rotate picture|3
+*d|Rotate picture|1|0
+
+s|160|120
+
+.|w|0|null|text|5|5|0|0|Image index (1-50):
+0|w|1|null|intfield|5|25|40|Z+|50
+.|w|2|null|text|5|45|0|0|Rotation (degree per frame)
+1|w|3|null|intfield|5|65|40|Z|360
+
+-|Tint picture|3
+*d|Tint picture|1|50.0x50.0x50.0x50.0|15
+
+s|420|190
+
+.|w|0|null|text|5|5|0|0|Image index (1-50):
+0|w|1|null|intfield|5|25|40|Z+|50
+1|w|2|null|colorpicker|140|5
+.|w|3|null|text|5|45|0|0|Time (in frames):
+2|w|4|null|intfield|5|65|40|N|9999
+
+-|Resize picture|3
+*d|Resize picture|1|1.0|15
+
+s|200|160
+
+.|w|0|null|text|5|5|0|0|Image index (1-50):
+0|w|1|null|intfield|5|25|40|Z+|50
+.|w|2|null|text|5|45|0|0|Size (delta):
+1|w|3|null|doublefield|5|65|60|N|100
+.|w|4|null|text|5|85|0|0|Time (in frames):
+2|w|5|null|intfield|5|105|40|N|9999
+
+-|Erase picture|3
+*d|Erase picture|1
+
+s|180|80
+
+.|w|0|null|text|5|5|0|0|Image index (1-50):
+0|w|1|null|intfield|5|25|40|Z+|50
+
+-|Set fog|3
+*d|Set fog|$]|128|0|0|0
+
+s|500|320
+
+.|w|0a|null|text|5|15|0|0|Fog graphics:
+0|w|0|null|imagepicker|fogs|5|35|350
+.|w|1|null|text|360|15|0|0|Opacity (0-255):
+.|w|2|null|text|360|55|0|0|Time (in frames):
+.|w|3|null|text|360|95|0|0|Move X:
+.|w|4|null|text|360|135|0|0|Move Y:
+1|w|5|null|intfield|360|35|40|N|255
+2|w|6|null|intfield|360|75|40|N|9999
+3|w|7|null|doublefield|360|115|50|Z|1000
+4|w|8|null|doublefield|360|155|50|Z|1000
+
+-|Edit fog|3
+*d|Edit fog|128|0|0|0
+
+s|160|210
+
+.|w|0|null|text|5|5|0|0|Opacity (0-255):
+.|w|1|null|text|5|45|0|0|Time (in frames):
+.|w|2|null|text|5|85|0|0|Move X:
+.|w|3|null|text|5|125|0|0|Move Y:
+0|w|4|null|intfield|5|25|40|N|255
+1|w|5|null|intfield|5|65|40|N|9999
+2|w|6|null|doublefield|5|105|50|Z|1000
+3|w|7|null|doublefield|5|145|50|Z|1000
+
+-|Change tileset|3
+*d|Change tileset|
+
+s|530|610
+
+.|w|0a|null|text|5|5|0|0|New tileset:
+0|w|0|null|tilesetpicker|5|25
+
+-|Change parallax|3
+*d|Change parallax|$]
+
+s|400|350
+
+.|w|0a|null|text|5|5|0|0|Panorama graphics:
+0|w|0|null|imagepicker|panoramas|5|25|370
+
+#|Scene control
+
+-|Shop|4
+*d|Shop
+
+-|Encounter|4
+*d|Encounter
+
+-|Open menu|4
+*d|Open menu
+
+-|Open save|4
+*d|Open save
+
+-|Title screen|4
+*d|Title screen
+
+-|Change menu acc|4
+*d|Change menu acc|0
+
+s|140|70
+
+0|w|0|null|switchbutton|5|5|80|30|Allow|Disallow
+
+-|Change save acc|4
+*d|Change save acc|0
+
+s|140|70
+
+0|w|0|null|switchbutton|5|5|80|30|Allow|Disallow
+
+-|Change player input|4
+*d|Change player input|0
+
+s|140|70
+
+0|w|0|null|switchbutton|5|5|80|30|Allow|Disallow
+
+-|Call script|5
+*d|Call script|none
+
+s|500|250
+
+0|w|0|null|text|5|5|480|20|none
+.|w|1|0|list|5|35|250|10|$%none$%script1$%script2$%script3
+
+#|Actor
+
+-|Change hp|6
+*d|Change hp
+
+s|300|320
+
+0|w|0|null|dbentrypicker|5|45|200|200|actors
+1|w|1|null|text|5|5|30|28|=
+.|w|2|3|button|40|5|20|28|..
+.|mw|3|1|droplist|40|33|100|6|$%=$%+=$%-=$%*=$%/=$%%=
+2|w|4|5|varnum|65|5
+.|mw|5|4|vardb|0|0
+
+-|Change mp|6
+*d|Change mp
+
+s|300|320
+
+0|w|0|null|dbentrypicker|5|45|200|200|actors
+1|w|1|null|text|5|5|30|28|=
+.|w|2|3|button|40|5|20|28|..
+.|mw|3|1|droplist|40|33|100|6|$%=$%+=$%-=$%*=$%/=$%%=
+2|w|4|5|varnum|65|5
+.|mw|5|4|vardb|0|0
+
+-|Change state|6
+*d|Change state
+
+s|350|420
+
+.|w|0|null|text|5|5|0|0|Add or remove a status effect.
+0|w|1|null|dbentrypicker|5|25|200|300|actors
+1|w|2|null|bulletboard|210|25|105|$%Add$%Remove
+2|w|3|null|text|210|70|80|20|Poison
+.|w|4|5|button|295|70|20|20|..
+.|mw|5|3|droplist|295|90|100|7|$%Poison$%Cripple$%Blind$%Paralize$%Unconscious$%Disease$%Gloom
+
+-|Recover all|6
+*d|Recover all
+
+-|Change exp|6
+*d|Change exp
+
+s|300|320
+
+0|w|0|null|dbentrypicker|5|45|200|200|actors
+1|w|1|null|text|5|5|30|28|=
+.|w|2|3|button|40|5|20|28|..
+.|mw|3|1|droplist|40|33|100|6|$%=$%+=$%-=$%*=$%/=$%%=
+2|w|4|5|varnum|65|5
+.|mw|5|4|vardb|0|0
+
+-|Change level|6
+*d|Change level
+
+s|300|320
+
+0|w|0|null|dbentrypicker|5|45|200|200|actors
+1|w|1|null|text|5|5|30|28|=
+.|w|2|3|button|40|5|20|28|..
+.|mw|3|1|droplist|40|33|100|6|$%=$%+=$%-=$%*=$%/=$%%=
+2|w|4|5|varnum|65|5
+.|mw|5|4|vardb|0|0
+
+-|Change stats|6
+*d|Change stats
+
+s|400|320
+
+0|w|0|null|dbentrypicker|5|45|200|200|actors
+1|w|1|null|text|5|5|30|28|=
+.|w|2|3|button|40|5|20|28|..
+.|mw|3|1|droplist|40|33|100|6|$%=$%+=$%-=$%*=$%/=$%%=
+2|w|4|5|varnum|65|5
+.|mw|5|4|vardb|0|0
+3|w|6|null|bulletboard|210|45|80|$%str$%vit$%agi$%int$%wis$%chr
+
+-|Change skills|6
+*d|Change skills
+
+s|350|420
+
+.|w|0|null|text|5|5|0|0|Add or remove a skill.
+0|w|1|null|dbentrypicker|5|25|200|300|actors
+1|w|2|null|bulletboard|210|25|105|$%Add$%Remove
+2|w|3|null|text|210|70|80|20|skill 1
+.|w|4|5|button|295|70|20|20|..
+.|mw|5|3|droplist|295|90|100|5|$%skill 1$%skill 2$%skill 3$%skill 4$%skill 5
+
+-|Change graphics|6
+*d|Change graphics
+
+s|550|400
+
+0|w|0|null|dbentrypicker|5|20|200|210|actors
+1|w|1|null|spritepicker|210|20|300
+
+#|Party
+
+-|Change money|8
+*d|Change money|=|0
+
+s|400|260
+
+0|w|0|null|text|5|5|30|28|=
+.|w|1|2|button|40|5|20|28|..
+.|mw|2|0|droplist|40|33|100|6|$%=$%+=$%-=$%*=$%/=$%%=
+1|w|3|4|varnum|65|5
+.|mw|4|3|vardb|0|0
+
+-|Change party|8
+*d|Change party
+
+s|250|400
+
+.|w|0|null|text|5|5|0|0|Add or remove party member
+0|w|1|null|switchbutton|5|25|200|20|add|remove
+1|w|2|null|dbentrypicker|5|50|200|200|actors
+
+-|Set followers|8
+*d|Set followers
+
+s|200|60
+
+0|w|0|null|switchbutton|5|5|80|30|ON|OFF
+
+-|Change items|8
+*d|Change items
+
+s|500|250
+
+0|w|0|null|dbentrypicker|5|5|200|200|items
+.|w|1|null|text|210|10|0|0|add this amount: (negative to remove)
+1|w|2|null|varnum|210|30
+
+#|Screen effects
+
+-|Show screen|9
+*d|Show screen
+
+-|Hide screen|9
+*d|Hide screen
+
+-|Tint screen|9
+*d|Tint screen|50.0x50.0x50.0x50.0|0
+
+s|500|250
+
+.|w|0|null|text|5|5|80|20|Select tint:
+0|w|1|null|colorpicker|5|30
+.|w|2|null|text|285|5|180|20|Duration (in frames 0-180):
+1|w|3|null|intfield|285|30|40|N|9999
+
+-|Flash screen|9
+*d|Flash screen|50.0x50.0x50.0x50.0|5|3|15
+
+s|500|250
+
+.|w|0|null|text|5|5|80|20|Select tint:
+0|w|1|null|colorpicker|5|30
+.|w|2|null|text|285|5|140|20|fade-in (in frames):
+1|w|3|null|intfield|285|30|40|N|9999
+.|w|4|null|text|285|55|140|20|max power:
+2|w|5|null|intfield|285|80|40|N|9999
+.|w|6|null|text|285|105|180|20|fade-out (in frames):
+3|w|7|null|intfield|285|130|40|N|9999
+
+-|Shake screen|9
+*d|Shake screen|5|120
+
+s|170|110
+
+.|w|0|null|text|5|5|90|17|power (1-39):
+.|w|1|null|text|5|45|150|17|time (in-frames):
+0|w|2|null|intfield|5|25|40|Z+|39
+1|w|3|null|intfield|5|65|40|N|9999
+
+-|Show animation|9
+*d|Show animation||0|0|$]
+
+s|520|320
+
+0|w|0|null|eventpicker|5|35|200|200|false
+.|w|1|null|text|5|245|125|20|or x/y coordinate...
+1|w|2|null|intfield|5|270|40|Z|9999
+2|w|3|null|intfield|50|270|40|Z|9999
+.|w|4|null|text|220|10|125|17|animation to show:
+.|w|5|null|text|5|10|125|17|location:
+3|w|6|null|animpicker|220|35|285
+.|w|7|null|text|212|5|2|280|
+
+-|Set weather|9
+*d|Set weather|clear|30|0|1|0|0|12|120
+
+s|200|190
+
+0|w|0|null|text|5|5|100|17|
+.|w|1|2|button|107|5|15|17|..
+.|mw|2|0|droplist|107|21|100|5|$%clear$%rain$%snow
+.|w|3|null|text|5|25|120|17|max particles:
+.|w|4|null|text|5|45|120|17|particle delay:
+.|w|5|null|text|5|65|120|17|particles /frame:
+.|w|6|null|text|5|85|120|17|- fluctuate
+.|w|7|null|text|5|105|120|17|+ fluctuate
+.|w|8|null|text|5|125|120|17|falling speed
+.|w|9|null|text|5|145|120|17|duration
+1|w|10|null|intfield|128|25|40|N|9999
+2|w|11|null|intfield|128|45|40|N|9999
+3|w|12|null|intfield|128|65|40|N|9999
+4|w|13|null|intfield|128|85|40|Z|999
+5|w|14|null|intfield|128|105|40|Z|999
+6|w|15|null|intfield|128|125|40|N|9999
+7|w|16|null|intfield|128|145|40|N|9999
+
+-|Stop weather|9
+*d|Stop weather
+
+#|Flow control
+
+-|while|5
+*d|while
+*|1|.|add command
+*e|endloop
+
+-|break loop|5
+*d|break loop
+
+-|Key input (variable)|11
+*d|Key input (variable)|
+
+s|300|360
+
+.|w|0|null|text|5|5|0|0|Set this:
+0|w|1|null|holdervariable|70|5|120|20
+.|w|2|3|button|195|5|20|20|..
+.|mw|3|1|vardb|0|0
+.|w|4|null|text|5|35|0|0|To keypress:
+1|w|5|null|bulletboard|100|35|100|$%up$%down$%left$%right$%confirm$%escape
+
+-|Control variable (direct)|5
+*d|Control variable (direct)
+
+s|290|100
+
+.|w|0|null|text|5|5|0|0|Set this:
+0|w|1|null|holdervariable|70|5|120|20
+.|w|2|3|button|195|5|20|20|..
+.|mw|3|1|vardb|0|0
+1|w|4|null|text|5|30|30|28|=
+.|w|5|6|button|40|30|20|28|..
+.|mw|6|4|droplist|40|58|50|6|$%=$%+=$%-=$%*=$%/=$%%=
+2|w|7|8|varnum|65|30
+.|mw|8|7|vardb|0|0
+
+-|Control variable (event)|5
+*d|Control variable (event)
+
+s|400|300
+
+.|w|0|null|text|5|5|60|20|set this:
+0|w|1|null|holdervariable|70|5|120|20
+.|w|2|3|button|195|5|20|20|..
+.|mw|3|1|vardb|0|0
+1|w|4|null|text|5|30|30|28|=
+.|w|5|6|button|40|30|20|28|..
+.|mw|6|4|droplist|40|58|50|6|$%=$%+=$%-=$%*=$%/=$%%=
+2|w|7|null|eventpicker|65|30|200|200|false
+3|w|8|null|bulletboard|270|30|80|$%world x$%world y$%screen x$%screen y
+
+-|Control variable (item)|5
+*d|Control variable (item)
+
+s|400|300
+
+.|w|0|null|text|5|5|60|20|set this:
+0|w|1|null|holdervariable|70|5|120|20
+.|w|2|3|button|195|5|20|20|..
+.|mw|3|1|vardb|0|0
+1|w|4|null|text|5|30|30|28|=
+.|w|5|6|button|40|30|20|28|..
+.|mw|6|4|droplist|40|58|50|6|$%=$%+=$%-=$%*=$%/=$%%=
+2|w|7|null|dbentrypicker|65|30|200|200|items
+
+-|Branch (variable)|5
+*d|Branch (variable)
+*|1|.|add command
+*|0|.|else
+*|1|.|add command
+*e|endbranch
+
+s|350|160
+
+0|w|0|null|holdervariable|5|5|200|20
+.|w|1|2|button|210|5|20|20|..
+.|mw|2|0|vardb|0|0
+1|w|3|null|text|5|30|45|28|=
+.|w|4|5|button|55|30|20|28|..
+.|mw|5|3|droplist|55|58|100|6|$%=$%<=$%>=$%<$%>$%!=
+2|w|6|7|varnum|80|30
+.|mw|7|6|vardb|0|0
+
+-|Control timer|5
+*d|Control timer|start|0
+
+s|270|130
+
+.|w|0|null|text|5|5|100|20|Select action:
+0|w|1|null|text|110|5|50|20|start
+.|w|2|3|button|165|5|20|20|..
+.|mw|3|1|droplist|165|25|70|3|$%start$%set$%stop
+.|w|4|null|text|5|35|245|20|Set to this value: (only on set action)
+1|w|5|null|varnum|5|60
+
+-|Exit event process|5
+*d|Exit event process
+
+-|Label|11
+*d|Label|0
+
+s|200|60
+
+0|w|0|null|intfield|5|5|60|N|999
+
+-|Jump to label|11
+*d|Jump to label|0
+
+s|200|60
+
+0|w|0|null|intfield|5|5|60|N|999
+
+-|Wait|5
+*d|Wait|30
+
+s|620|120
+
+.|w|0|null|text|5|5|300|20|Wait (frames, 1 second is 60 frames.)
+0|w|1|null|slider|5|30|600|25|0|600|0
+
+-|Wait until collapse|5
+*d|Wait until collapse
+
+-|Run common event|11
+*d|Run common event|
+
+s|300|310
+
+.|w|0|null|text|5|5|0|0|Select common event to run:
+0|w|1|null|eventpicker|5|25|250|250|true
+
+#|Movement
+
+-|Set move route|0
+*d|Set move route|This event$]$%add...|0|1|$]$]100$]50$]50|$]$]100$]50$]50
+
+s|795|605
+
+.|w|0|null|button|280|545|105|25|
+.|w|1|2|button|5|5|120|20|Edit route
+0|w|2|null|movec|5|25|true
+.|w|3|null|text|400|5|0|0|Other options:
+1|w|4|null|switchbutton|400|30|80|20|repeat off|repeat on
+2|w|5|null|switchbutton|400|55|80|20|ignore off|ignore on
+.|w|6|null|text|400|85|0|0|Sounds in movement (1/2):
+3|w|7|null|audiopicker|400|105|350|160
+4|w|8|null|audiopicker|400|275|350|160
+
+-|Transfer player|0
+*d|Transfer player
+
+s|900|650
+
+0|w|0|null|coordmap|20|20|700|550|12
+.|w|1|null|text|740|350|50|20|facing:
+1|w|2|null|text|789|350|70|20|retain
+.|w|3|4|button|859|350|15|20|..
+.|mw|4|2|droplist|859|370|100|5|$%retain$%up$%right$%left$%down
+.|w|5|0|dirlistmaps|740|20|150|20|/maps
+
+-|Set event location|0
+*d|Set event location
+
+s|350|320
+
+.|w|0|null|text|5|5|300|20|Set the selected events location on this map!
+0|w|1|null|intfield|5|30|60|N|9999
+1|w|2|null|intfield|70|30|60|N|9999
+2|w|3|null|eventpicker|5|55|200|200|false
+
+-|Scroll map|0
+*d|Scroll map|0|0|0
+
+s|350|150
+
+.|w|10|null|text|5|5|340|17|(set coordinates to p to return to player!)
+.|w|0|null|text|5|25|40|17|X
+.|w|1|null|text|5|45|40|17|Y
+.|w|2|null|text|5|65|40|17|time
+0|w|3|null|textfield|50|25|100|1
+1|w|4|null|textfield|50|45|100|1
+2|w|5|null|intfield|50|65|40|N|9999
+
+#|Audio
+
+-|Play music|7
+*d|Play music|1|$]$]100$]50$]50|0
+
+s|420|340
+
+.|w|0|null|text|5|270|82|17|ID:
+.|w|1|null|text|5|290|82|17|fade-in time:
+0|w|2|null|intfield|92|270|30|Z+|100
+1|w|3|null|audiopicker|5|15|400|250
+2|w|4|null|intfield|92|290|40|Z+|9999
+
+-|Fade music|7
+*d|Fade music|1|1
+
+s|200|120
+
+.|w|0|null|text|5|5|92|17|ID:
+.|w|1|null|text|5|25|92|17|fade-out time:
+0|w|2|null|intfield|102|5|30|Z+|100
+1|w|4|null|intfield|102|25|40|Z+|9999
+
+-|Play sound|7
+*d|Play sound|$]$]100$]50$]50
+
+s|420|295
+
+0|w|3|null|audiopicker|5|15|400|250
+
+#|Messages
+
+-|Message|10
+*d|Message
+
+s|700|149
+
+opt|defaultfocus|2
+.|w|jelzo|null|text|355|100|2|12|
+0|w|index1|null|arrayfield|10|10|680|1
+1|w|index2|null|arrayfield|10|30|680|4
+
+-|Clear facesets|2
+*d|Clear facesets
+
+-|Select faceset|2
+*d|Select faceset|$]|0|0
+
+s|450|270
+
+0|w|index1|null|imagepicker|facesets|10|18|300
+.|w|0|null|text|320|18|110|18|position:
+1|w|index2|null|bulletboard|320|40|110|$%left$%right
+.|w|1|null|text|320|86|110|18|appear:
+2|w|index3|null|bulletboard|320|108|110|$%fade in$%instant
+
+-|Fade faceset|2
+*d|Fade faceset|0|0
+
+s|150|270
+
+.|w|0|null|text|5|5|0|0|Position:
+0|w|2|null|bulletboard|5|27|110|$%left$%right
+.|w|1|null|text|5|73|0|0|Setting:
+1|w|3|null|bulletboard|5|95|110|$%restore$%fade
+
+-|Edit message options|2
+*d|Edit message options|0|0|0
+
+s|360|140
+
+.|w|0|null|text|10|10|110|18|type
+.|w|1|null|text|125|10|110|18|manual position
+.|w|2|null|text|240|10|110|18|auto positioning
+0|w|3|null|bulletboard|10|30|110|$%normal$%transparent
+1|w|4|null|bulletboard|125|30|110|$%bottom$%middle$%top
+2|w|5|null|bulletboard|240|30|110|$%on$%off
+
+-|Input variable|5
+*d|Input variable|1|
+
+s|250|100
+
+.|w|0|null|text|5|5|50|16|digits:
+0|w|1|null|slider|5|25|240|20|1|6|#
+.|w|2|3|button|5|50|16|16|..
+.|mw|3|4|vardb|0|0
+1|w|4|null|text|26|50|180|16|
+
+-|Show choices (2)|1
+*d|Show choices (2)
+*|0|0|choice
+*|1|.|add command
+*|0|1|choice
+*|1|.|add command
+*e|end
+
+s|420|140
+
+opt|defaultfocus|1
+0|w|index1|null|arrayfield|10|10|400|1
+1|w|index2|null|arrayfield|10|30|400|1
+
+-|Show choices (3)|1
+*d|Show choices (3)
+*|0|0|choice
+*|1|.|add command
+*|0|1|choice
+*|1|.|add command
+*|0|2|choice
+*|1|.|add command
+*e|end
+
+s|420|140
+
+opt|defaultfocus|1
+0|w|index1|null|arrayfield|10|10|400|1
+1|w|index2|null|arrayfield|10|30|400|1
+2|w|index3|null|arrayfield|10|50|400|1
+
+-|Show choices (4)|1
+*d|Show choices (4)
+*|0|0|choice
+*|1|.|add command
+*|0|1|choice
+*|1|.|add command
+*|0|2|choice
+*|1|.|add command
+*|0|3|choice
+*|1|.|add command
+*e|end
+
+s|420|140
+
+opt|defaultfocus|1
+0|w|index1|null|arrayfield|10|10|400|1
+1|w|index2|null|arrayfield|10|30|400|1
+2|w|index3|null|arrayfield|10|50|400|1
+3|w|index4|null|arrayfield|10|70|400|1

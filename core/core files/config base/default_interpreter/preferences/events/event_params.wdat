@@ -1,0 +1,28 @@
+0: variable 0|
+1: variable 1|
+2: variable 2|
+3: variable 3|
+4: variable 0 operator|=
+5: variable 1 operator|=
+6: variable 2 operator|=
+7: variable 3 operator|=
+8: variable 0 value|
+9: variable 1 value|
+10: variable 2 value|
+11: variable 3 value|
+12: move animation|1
+13: stop animation|0
+14: directional fix|0
+15: material|0
+16: always on top|0
+17: always on bottom|0
+18: activation types [activating, touching, touched by, autorun, paralell]|0
+19: movement type [none, random, approach, flee, custom]|0
+20: movement commands|$]$%add...
+21: speed|12
+22: offset x|0
+23: offset y|0
+24: animation speed|0
+25: ignore impassable|0
+26: audio 1|$]$]100$]50$]50
+27: audio 2|$]$]100$]50$]50
