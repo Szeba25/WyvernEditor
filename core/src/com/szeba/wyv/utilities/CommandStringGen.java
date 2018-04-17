@@ -47,7 +47,8 @@ public final class CommandStringGen {
 	}
 	
 	public static boolean isArrayText(String data) {
-		if (data.length() == 0 || !(data.charAt(0) == Separator.array.charAt(0)) ) {
+		if (data.length() <= 1 || !(data.charAt(0) == Separator.escapeCharacter.charAt(0) &&
+									data.charAt(1) == Separator.array.charAt(1)) ) {
 			return false;
 		}
 		

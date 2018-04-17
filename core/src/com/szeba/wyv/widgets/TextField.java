@@ -168,11 +168,8 @@ public class TextField extends Widget {
 			} else if (text.charAt(i) < 32) {
 				newText += (char)35; // Replace with #...
 			} else if (text.charAt(i) == Separator.fileWyvChar.charAt(0) ||
-					text.charAt(i) == Separator.dataUnit.charAt(0) ||
-					text.charAt(i) == Separator.listElement.charAt(0) ||
-					text.charAt(i) == Separator.array.charAt(0) ||
-					text.charAt(i) == Separator.dynParameter.charAt(0)) {
-				// This is the case with any separator!
+					text.charAt(i) == Separator.escapeCharacter.charAt(0)) {
+				// This is the case with any separator! We wont let the user write the escape character.
 				newText += (char)35; // Replace with #...
 			} else {
 				newText += text.charAt(i);

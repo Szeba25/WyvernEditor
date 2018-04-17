@@ -1,6 +1,0 @@
-124: | (US)   common
-182: ¶ (GS)   data unit
-165: ¥ (RS)   list element
-167: § (SUB)  array
-166: ¦ (CAN)  dynamic parameter
-172: ¬ (EM)   custon new line

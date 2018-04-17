@@ -1,6 +1,7 @@
 package com.szeba.wyv.utilities;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.regex.Pattern;
 
 import com.szeba.wyv.data.ListElement;
@@ -90,12 +91,12 @@ public final class StringUtilities {
 	/**
 	 * Build a List from the given data string.
 	 * Format:
-	 * [SUB]element[SUB]element ...
+	 * $*element1$*element2 ...
 	 */
 	public static ArrayList<String> buildStringList(String data) {
 		ArrayList<String> ar = new ArrayList<String>();
-		if (data.length() > 1) {
-			data = data.substring(1, data.length());
+		if (data.length() > 2) {
+			data = data.substring(2, data.length());
 			String[] splitted = safeSplit(data, Separator.array);
 			for (int i = 0 ; i < splitted.length; i++) {
 				ar.add(splitted[i]);

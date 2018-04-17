@@ -10,16 +10,16 @@ import com.szeba.wyv.widgets.dynamic.DynamicPanel;
 public class CommandData {
 
 	private String name;
-	
+
 	private String color;
 	private ArrayList<String> params;
 	private ArrayList<ArrayList<String>> additionalLines;
 	private ArrayList<ArrayList<String>> paramLines;
 	private String endParam;
 	private DynamicPanel panel;
-	
+
 	public boolean opens;
-	
+
 	public CommandData(String name, String color) {
 		this.name = name;
 		this.color = color;
@@ -39,18 +39,18 @@ public class CommandData {
 			params.add(line.get(i));
 		}
 	}
-	
+
 	/**
 	 * Get the parameter list as a string
 	 */
 	public String getParamString() {
 		return getListAsString(params, 0);
 	}
-	
+
 	public String getAdditionalLineString(int index) {
 		return getListAsString(additionalLines.get(index), 3);
 	}
-	
+
 	private String getListAsString(ArrayList<String> list, int start) {
 		String p = "";
 		for (int i = start; i < list.size(); i++) {
@@ -71,7 +71,7 @@ public class CommandData {
 		}
 		// This additional line will hold a parameter too.
 		if (NumberUtils.isNumber(ar.get(2))) {
-			/* 
+			/*
 			 * Add a paramline too (Paramline holds one parameter of the original command)
 			 * a paramline does not hold the data itself, just the name of this param, and the index of the desired
 			 * parameter.
@@ -83,19 +83,19 @@ public class CommandData {
 			}
 		}
 	}
-	
+
 	public void setEndParam(String string) {
 		endParam = string;
 	}
-	
+
 	public DynamicPanel getPanel() {
 		return panel;
 	}
-	
+
 	public String getEndParam() {
 		return endParam;
 	}
-	
+
 	public ArrayList<ArrayList<String>> getAdditionalLines() {
 		return additionalLines;
 	}
@@ -111,5 +111,5 @@ public class CommandData {
 	public String getColor() {
 		return color;
 	}
-	
+
 }

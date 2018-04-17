@@ -55,7 +55,8 @@ public class Variables {
 		for (int i = 0; i < t.getLength(); i++) {
 			// We indicate a category with the array character.
 			if (t.getLine(i).size() > 0 && t.getValue(i, 0).length() > 0 && 
-					t.getValue(i, 0).charAt(0) == Separator.array.charAt(0)) {
+					t.getValue(i, 0).charAt(0) == Separator.escapeCharacter.charAt(0) &&
+					t.getValue(i, 0).charAt(1) == Separator.array.charAt(1)) {
 				currentCategory = t.getValue(i, 1);
 				entries.put(currentCategory, new ArrayList<String>());
 			} else if (currentCategory.length() > 0) {
