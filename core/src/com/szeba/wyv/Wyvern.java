@@ -41,7 +41,7 @@ import com.szeba.wyv.widgets.ext.Warning;
 public class Wyvern implements ApplicationListener {
 	
 	// The current version number
-	public static final String VERSION = "v0.600";
+	public static final String VERSION = "v0.601";
 	
 	// The current working directory
 	public static String DIRECTORY;
@@ -85,11 +85,17 @@ public class Wyvern implements ApplicationListener {
 	/** 
 	 * Initialize the editor 
 	 */
-	public Wyvern(String workingDirectory, String interpreter, int framerate) {
+	public Wyvern(String workingDirectory, boolean externalInterpreter, String interpreter, int framerate) {
 		DIRECTORY = workingDirectory;
 		FPS = framerate;
 		INTERPRETER_NAME = interpreter;
-		INTERPRETER_DIR = workingDirectory + "/interpreters/" + interpreter;
+
+		if (externalInterpreter) {
+			INTERPRETER_DIR = interpreter;
+		} else {
+			INTERPRETER_DIR = workingDirectory + "/interpreters/" + interpreter;
+		}
+
 		cache = new Cache();
 		input = new Input();
 		database = new Database();

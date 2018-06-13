@@ -25,7 +25,8 @@ public class DesktopLauncher {
 		
 		// Get the current interpreter name
 		TextFile file = new TextFile(workingDirectory + "/core files/interpreter.wdat");
-		String interpreter = file.getValue(0, 0);
+		boolean externalInterpreter = file.getValue(0, 0).equals("true");
+		String interpreter = file.getValue(0, 1);
 		
 		// Redirect the output stream
 		redirectOutputStream(workingDirectory);
@@ -64,7 +65,7 @@ public class DesktopLauncher {
 		cfg.y = ((height - cfg.height) / 2) - 40;
 		
 		// Create the application
-		new LwjglApplication(new Wyvern(workingDirectory, interpreter, cfg.foregroundFPS), cfg);
+		new LwjglApplication(new Wyvern(workingDirectory, externalInterpreter, interpreter, cfg.foregroundFPS), cfg);
 	}
 	
 	/**
