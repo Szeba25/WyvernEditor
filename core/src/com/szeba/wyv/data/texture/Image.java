@@ -67,7 +67,7 @@ public class Image extends TextureRegion {
 		imgDir = fileDir;
 		imgName = fileName;
 		imgRelativePath = fileDir + "/" + fileName;
-		imgAbsolutePath = Wyvern.INTERPRETER_DIR + imgRelativePath;
+		imgAbsolutePath = Wyvern.INTERPRETER_DIR + "/" + imgRelativePath;
 		
 		reg_x = 0;
 		reg_y = 0;
@@ -175,7 +175,7 @@ public class Image extends TextureRegion {
 	private ManagedTexture createTexture(String dir, String name) {
 		
 		String texRelativePath = dir + "/" + name;
-		String texAbsolutePath = Wyvern.INTERPRETER_DIR + texRelativePath;
+		String texAbsolutePath = Wyvern.INTERPRETER_DIR + "/" + texRelativePath;
 		ManagedTexture tex = null;
 		
 		// We must create this texture. Check for the file if its valid.
@@ -205,7 +205,7 @@ public class Image extends TextureRegion {
 	private void checkTexture(String dir, String name) {
 		
 		String texRelativePath = dir + "/" + name;
-		String texAbsolutePath = Wyvern.INTERPRETER_DIR + texRelativePath;
+		String texAbsolutePath = Wyvern.INTERPRETER_DIR + "/" + texRelativePath;
 		ManagedTexture oldTexture = textures.get(texRelativePath);
 		
 		// Check, if the textures file is valid.

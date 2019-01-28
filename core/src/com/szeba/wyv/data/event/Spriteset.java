@@ -61,7 +61,7 @@ public class Spriteset {
 		images = new ArrayList<Image>();
 		sizes = new ArrayList<Point>();	
 		
-		String checkedPath = Wyvern.INTERPRETER_DIR + dir + "/" + name;
+		String checkedPath = Wyvern.INTERPRETER_DIR + "/" + dir + "/" + name;
 		
 		if (FileUtilities.isValidSpriteset(checkedPath)) {
 			// Load the metadata, and load the images!
