@@ -304,7 +304,7 @@ public class DirList extends List {
 	}
 	
 	public void setDirectory(String directory) {
-		openDirectory(Wyvern.INTERPRETER_DIR + directory);
+		openDirectory(Wyvern.INTERPRETER_DIR + "/" + directory);
 	}
 	
 	public void returnToRoot() {
