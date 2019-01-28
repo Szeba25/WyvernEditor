@@ -73,7 +73,7 @@ public final class StringUtilities {
 	 * Get relative path to this directory
 	 */
 	public static String getRelativePath(String minDir, String path) {
-		return path.subSequence(minDir.length(), path.length()).toString();
+		return path.subSequence(minDir.length() + 1, path.length()).toString();
 	}
 	
 	/**

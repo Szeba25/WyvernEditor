@@ -217,7 +217,7 @@ public class MapPanel extends Widget {
 			currentMapPath = mapPath;
 			currentMap = getCurrentMapFromHash(maps);
 		} else {
-			maps.put(mapPath, new GameMap(mapName, Wyvern.INTERPRETER_DIR + mapPath, mapPath));
+			maps.put(mapPath, new GameMap(mapName, Wyvern.INTERPRETER_DIR + "/" + mapPath, mapPath));
 			currentMapPath = mapPath;
 			currentMap = getCurrentMapFromHash(maps);
 		}
@@ -281,7 +281,7 @@ public class MapPanel extends Widget {
 			
 			// Load from hard disc, if exists.
 			if (mapPath.length() > 0 && FileUtilities.exists(Wyvern.INTERPRETER_DIR + mapPath)) {
-				currentMap = new GameMap(mapName, Wyvern.INTERPRETER_DIR + mapPath, mapPath);
+				currentMap = new GameMap(mapName, Wyvern.INTERPRETER_DIR + "/" + mapPath, mapPath);
 				
 			// If not exists, and ID is not -1, search for it by ID.
 			} else if (!sigid.equals("-1")) {
