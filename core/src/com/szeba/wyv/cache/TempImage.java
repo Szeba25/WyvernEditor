@@ -51,7 +51,7 @@ public class TempImage {
 		if (dir == null || name == null) {
 			nullImage = true;
 		} else {
-			finalPath = Wyvern.INTERPRETER_DIR + dir + "/" + name;
+			finalPath = Wyvern.INTERPRETER_DIR + "/" + dir + "/" + name;
 		}
 		
 		if (!nullImage && FileUtilities.exists(finalPath)) {

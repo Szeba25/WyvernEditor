@@ -177,11 +177,11 @@ public class Cache {
 	 * Play a music from the hard disc.
 	 */
 	public void playStreamedMusic(String dir, String name) {
-		String path = Wyvern.INTERPRETER_DIR + dir + "/" + name;
+		String path = Wyvern.INTERPRETER_DIR + "/" + dir + "/" + name;
 		if (FileUtilities.exists(path) &&
 				!FileUtilities.isFolder(path)) {
 			disposeMusic();
-			streamedMusic = Gdx.audio.newMusic(new FileHandle(Wyvern.INTERPRETER_DIR + dir + "/" + name));
+			streamedMusic = Gdx.audio.newMusic(new FileHandle(Wyvern.INTERPRETER_DIR + "/" + dir + "/" + name));
 			streamedMusic.play();
 			unloadStreamedMusic = false;
 			System.out.println("Music: loaded!");

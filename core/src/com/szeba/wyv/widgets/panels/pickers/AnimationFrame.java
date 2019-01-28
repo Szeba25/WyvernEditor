@@ -67,7 +67,7 @@ public class AnimationFrame extends BaseFrame {
 		
 		reset();
 		
-		String finalAccessPath = Wyvern.INTERPRETER_DIR + dir + "/" + name;
+		String finalAccessPath = Wyvern.INTERPRETER_DIR + "/" + dir + "/" + name;
 		
 		if (dir.length() > 0 && name.length() > 0) {
 			
