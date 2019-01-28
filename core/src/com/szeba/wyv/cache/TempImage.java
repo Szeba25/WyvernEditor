@@ -75,7 +75,7 @@ public class TempImage {
 					} else {
 						textureDir = imageDir;
 					}
-					texture = new Texture(Wyvern.INTERPRETER_DIR + textureDir + "/" + textureName);
+					texture = new Texture(Wyvern.INTERPRETER_DIR + "/" + textureDir + "/" + textureName);
 					image = new TextureRegion(texture, x, y, w, h);
 					image.flip(false, true);
 					

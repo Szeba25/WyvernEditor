@@ -23,9 +23,13 @@ public class ImagePicker extends BasePicker {
 		
 		this.setW(s);
 		this.setH(s-90);
+
+		if (sub.length() > 0) {
+			sub = "/" + sub;
+		}
 		
 		imageList = new DirListImages(getX(), getY(), 5, 5, 150, ((getH()-16)/16),
-				Wyvern.INTERPRETER_DIR + "/resources/" + sub, Wyvern.INTERPRETER_DIR + "/resources/" + sub);
+				Wyvern.INTERPRETER_DIR + "/resources" + sub, Wyvern.INTERPRETER_DIR + "/resources" + sub);
 		imageFrame = new ImageFrame(getX(), getY(), 160, 25, getW()-165, getW()-165);
 		
 		name = new Text(getX(), getY(), 160, 5, getW()-165, 18, "");
