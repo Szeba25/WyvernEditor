@@ -106,7 +106,7 @@ public class Image extends TextureRegion {
 				// Reload the Image and check it's new texture!
 				
 				if (FileUtilities.isValidImage(imgAbsolutePath)) {
-					if (StringUtilities.getExtension(imgName).equals("wdat")) {
+					if (StringUtilities.getExtension(imgName).equals("wimg")) {
 						// This image is a reference to a texture. Get the texture's name from the file.
 						TextFile tf = new TextFile(imgAbsolutePath);
 						textureName = tf.getValue(0, 0);

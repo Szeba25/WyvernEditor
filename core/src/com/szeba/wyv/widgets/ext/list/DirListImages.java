@@ -25,7 +25,7 @@ public class DirListImages extends DirList {
 			} else if (FileUtilities.isValidImage(path + "/" + str)) {
 				
 				// We need another check to set the icons correctly
-				if (StringUtilities.getExtension(str).equals("wdat")) {
+				if (StringUtilities.getExtension(str).equals("wimg")) {
 					folders.add(new ListElement(str, str, 6));
 				} else {
 					folders.add(new ListElement(str, str, 5));

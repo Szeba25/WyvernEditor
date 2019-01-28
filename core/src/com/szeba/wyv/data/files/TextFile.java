@@ -97,7 +97,8 @@ public class TextFile {
 	
 	private void setSplitBy(String path) {
 		splitBy = Separator.fileTextChar;
-		if (StringUtilities.getExtension(path).equals("wdat")) {
+		String extension = StringUtilities.getExtension(path);
+		if (extension.equals("wdat") || extension.equals("wimg")) {
 			splitBy = Separator.fileWyvChar;
 		}
 	}
