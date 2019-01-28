@@ -235,7 +235,7 @@ public class Cell {
 		}
 		
 		// We finally export.
-		String exportPath = Wyvern.INTERPRETER_DIR +
+		String exportPath = Wyvern.INTERPRETER_DIR + "/" +
 				this.map.getRelativePath() + "/" + this.getPosX() + "x" + this.getPosY();
 		PixmapIO.writePNG(new FileHandle(exportPath + "/export.png"), 
 				finalImage);
