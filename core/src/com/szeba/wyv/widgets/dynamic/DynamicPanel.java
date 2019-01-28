@@ -415,7 +415,7 @@ public class DynamicPanel extends Widget {
 			int y = Integer.parseInt(line.get(6));
 			int w = Integer.parseInt(line.get(7));
 			int h = Integer.parseInt(line.get(8));
-			String path = Wyvern.INTERPRETER_DIR + line.get(9);
+			String path = Wyvern.INTERPRETER_DIR + "/" + line.get(9);
 			wid = new DynDirList(getX(), getY(), x, y, w, h, path, path);
 			addToEnterFocusRestricted = true;
 		}
@@ -430,7 +430,7 @@ public class DynamicPanel extends Widget {
 			int y = Integer.parseInt(line.get(6));
 			int w = Integer.parseInt(line.get(7));
 			int h = Integer.parseInt(line.get(8));
-			String path = Wyvern.INTERPRETER_DIR + line.get(9);
+			String path = Wyvern.INTERPRETER_DIR + "/" + line.get(9);
 			wid = new DynDirListMaps(getX(), getY(), x, y, w, h, path, path);
 			addToEnterFocusRestricted = true;
 		}

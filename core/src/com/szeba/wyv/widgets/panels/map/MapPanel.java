@@ -280,7 +280,7 @@ public class MapPanel extends Widget {
 		} else {
 			
 			// Load from hard disc, if exists.
-			if (mapPath.length() > 0 && FileUtilities.exists(Wyvern.INTERPRETER_DIR + mapPath)) {
+			if (mapPath.length() > 0 && FileUtilities.exists(Wyvern.INTERPRETER_DIR + "/" + mapPath)) {
 				currentMap = new GameMap(mapName, Wyvern.INTERPRETER_DIR + "/" + mapPath, mapPath);
 				
 			// If not exists, and ID is not -1, search for it by ID.
