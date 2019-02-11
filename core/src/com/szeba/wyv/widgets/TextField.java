@@ -56,7 +56,7 @@ public class TextField extends Widget {
 	private double repeat2Delay;
 	
 	public TextField(int ox, int oy, int rx, int ry, int w, int count) {
-		super(ox, oy, rx, ry, w, count*17);
+		super(ox, oy, rx, ry, w, (count*17)+2);
 		
 		displayedText = new DisplayedText();
 		directTextChange("");

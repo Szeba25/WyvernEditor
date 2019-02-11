@@ -5,10 +5,10 @@ font = 25 25 25 255
 
 widget_active_brd = 5 5 5 235
 widget_passive_brd = 135 135 135 235
-widget_bkg = 180 205 205 255
+widget_bkg = 230 215 245 255
 widget_bkg2 = 140 140 140 255
-widget_bkg3 = 180 200 210 255
-widget_bkg4 = 60 70 80 255
+widget_bkg3 = 210 200 210 255
+widget_bkg4 = 255 255 255 255
 widget_highlight = 150 120 170 120
 
 event_bkg_active = 210 210 210 235
@@ -23,7 +23,7 @@ map_paint_rect = 40 50 60 255
 map_selection_rect = 60 60 60 150
 map_cellgrid = 40 40 40 255
 map_tilegrid = 200 200 200 110
-list_scrollbar = 130 130 130 255
+list_scrollbar = 210 210 210 255
 list_mark = 0 0 0 255
 toolbar_mark = 110 115 125 150
 text_selection = 40 80 50 120
