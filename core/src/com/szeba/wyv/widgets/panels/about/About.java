@@ -128,7 +128,7 @@ public class About extends Widget {
 		drawBackground(batch);
 		drawOutline(batch);
 		//FontUtilities.print(batch, "Choose theme: ", getX()+5, getY()+2);
-		FontUtilities.print(batch, "Version: " + Wyvern.VERSION + " 2016", getX()+5, getY()+5);
+		FontUtilities.print(batch, "Version: " + Wyvern.VERSION + " 2019", getX()+5, getY()+5);
 		FontUtilities.print(batch, "Programming: Szeba", getX() + 40, getY() + 75);
 		FontUtilities.print(batch, "Graphics: Zsuzsy", getX() + 40, getY() + 95);
 		FontUtilities.print(batch, "Contributor: Böbi", getX() + 40, getY() + 115);
