@@ -30,6 +30,7 @@ public class ModMapCloser extends Widget {
 		this.setEnterFocusDefault(yesButton);
 		this.setEnterFocusRestricted(noButton, cancelButton);
 		this.setTabFocus(true);
+		this.setCursorFocus(true);
 	}
 	
 	@Override

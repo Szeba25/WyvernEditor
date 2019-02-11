@@ -1,1 +1,1 @@
-wyv_dark.txt
+wyv_light.txt
