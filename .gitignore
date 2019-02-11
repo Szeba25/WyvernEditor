@@ -85,3 +85,5 @@ core/core\ files/main_config.wdat
 core/interpreters/
 core/logs/
 core/Wyvern.jar
+core/Wyvern.exe
+core/Wyvern.xml
