@@ -21,6 +21,7 @@ import com.szeba.wyv.widgets.Widget;
 public class DynamicPreview extends Widget {
 
 	private Button close;
+	private Button editFile;
 	private ArrayList<Button> buttonArray;
 	private DynamicPanel previewPanel;
 	private FileTime timeModified;
@@ -28,7 +29,8 @@ public class DynamicPreview extends Widget {
 	public DynamicPreview(int ox, int oy, int rx, int ry) {
 		super(ox, oy, rx, ry, 600, 600);
 		
-		close = new Button(getX(), getY(), 0, 0, 55, 25, "close");
+		close = new Button(getX(), getY(), 0, 0, 55, 18, "close");
+		editFile = new Button(getX(), getY(), 0, 0, 55, 18, "edit");
 		
 		ArrayList<String> commandArray = new ArrayList<String>();
 		commandArray.add("button");
@@ -75,6 +77,7 @@ public class DynamicPreview extends Widget {
 		this.setFileAttributes(FileUtilities.getFileAttributes(Wyvern.DIRECTORY + "/core files/preview_panel.wdat"));
 		
 		this.addWidget(close);
+		this.addWidget(editFile);
 		for (Button b : buttonArray) {
 			this.addWidget(b);
 		}
@@ -85,7 +88,9 @@ public class DynamicPreview extends Widget {
 		this.setW(width-40);
 		this.setH(height-40);
 		close.setRX(getW()-60);
-		close.setRY(getH()-30);
+		close.setRY(getH()-25);
+		editFile.setRX(getW()-120);
+		editFile.setRY(getH()-25);
 		int ycounter = 5;
 		for (Button b : buttonArray) {
 			b.setRX(getW()-120);
