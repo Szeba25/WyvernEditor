@@ -184,7 +184,7 @@ public class DynamicPreview extends Widget {
 		previewPanel.removeWidget(0);
 		previewPanel.setEnterFocusDefault(null);
 		if (add) {
-			this.removeWidget(33);
+			this.removeWidget(34);
 			this.addWidget(previewPanel);
 		}
 		this.setPreviewPanelSize();
