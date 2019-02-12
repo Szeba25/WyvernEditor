@@ -54,6 +54,8 @@ public final class Palette {
 	public static Color OUT_OF_SCREEN;
 	
 	public static Color[] COMMAND_COLOR;
+
+	public static Color FONT_PASSIVE;
 	
 	public static void load_theme(String name) {
 		
@@ -102,7 +104,9 @@ public final class Palette {
 		for (int i = 0; i < 12; i++) {
 			COMMAND_COLOR[i] = parseColor(f.getLine(32+i));
 		}
-		
+
+		// Create inactive color font
+		FONT_PASSIVE = new Color(FONT.r, FONT.g, FONT.b, FONT.a / 2);
 	}
 	
 	public static Color parseColor(ArrayList<String> data) {

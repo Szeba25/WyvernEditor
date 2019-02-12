@@ -65,19 +65,19 @@ public class TabButton extends Button {
 			}
 		} else {
 			if (star) {
-				FontUtilities.print(batch, Palette.GRAY, getText()+getListIDmark()+"*", getX()+5, ty);
+				FontUtilities.print(batch, Palette.FONT_PASSIVE, getText()+getListIDmark()+"*", getX()+5, ty);
 			} else {
-				FontUtilities.print(batch, Palette.GRAY, getText()+getListIDmark(), getX()+5, ty);
+				FontUtilities.print(batch, Palette.FONT_PASSIVE, getText()+getListIDmark(), getX()+5, ty);
 			}
 		}
 		
 		if (hasX) {
 			// Draw an X at the end of the button
-			ShapePainter.drawRectangle(batch, Palette.GRAY, getX()+getW()-15, getY()+4, 13, getH()-7);
+			ShapePainter.drawRectangle(batch, Palette.WIDGET_PASSIVE_BRD, getX()+getW()-15, getY()+4, 13, getH()-7);
 			if (mouseInsideX()) { 
 				FontUtilities.print(batch, "X", getX()+getW()-15+2, ty+2);
 			} else {
-				FontUtilities.print(batch, Palette.GRAY, "X", getX()+getW()-15+2, ty+2);
+				FontUtilities.print(batch, Palette.FONT_PASSIVE, "X", getX()+getW()-15+2, ty+2);
 			}
 		}
 		
