@@ -130,19 +130,20 @@ public class DynamicPreview extends Widget {
 			}
 		}
 		
-		// Reload widget
-		
-		BasicFileAttributes attrs = FileUtilities.getFileAttributes(Wyvern.DIRECTORY + "/core files/preview_panel.wdat");
-		if (!this.isEqualAttrs(attrs)) {
-			this.setFileAttributes(attrs);
-			try {
-				this.createDynamic(true);
-				this.previewPanel.loadWidgets(Wyvern.DIRECTORY + "/core files/preview_panel.wdat");
-				System.out.println("Preview panel successfully loaded!");
-			} catch (Exception e) {
-				System.out.println("Preview panel syntax error...");
-				this.createDynamic(true);
-				this.previewPanel.addWidget(new Text(previewPanel.getX(), previewPanel.getY(), 5, 5, 200, 17, "Syntax error..."));
+		// Reload widget if window is visible
+		if (this.isVisible()) {
+			BasicFileAttributes attrs = FileUtilities.getFileAttributes(Wyvern.DIRECTORY + "/core files/preview_panel.wdat");
+			if (attrs != null && !this.isEqualAttrs(attrs)) {
+				this.setFileAttributes(attrs);
+				try {
+					this.createDynamic(true);
+					this.previewPanel.loadWidgets(Wyvern.DIRECTORY + "/core files/preview_panel.wdat");
+					System.out.println("Preview panel successfully loaded!");
+				} catch (Exception e) {
+					System.out.println("Preview panel syntax error...");
+					this.createDynamic(true);
+					this.previewPanel.addWidget(new Text(previewPanel.getX(), previewPanel.getY(), 5, 5, 200, 17, "Syntax error..."));
+				}
 			}
 		}
 		
