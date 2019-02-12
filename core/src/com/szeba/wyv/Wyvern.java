@@ -41,7 +41,7 @@ import com.szeba.wyv.widgets.ext.Warning;
 public class Wyvern implements ApplicationListener {
 	
 	// The current version number
-	public static final String VERSION = "v0.815";
+	public static final String VERSION = "v0.816";
 	
 	// The current working directory
 	public static String DIRECTORY;

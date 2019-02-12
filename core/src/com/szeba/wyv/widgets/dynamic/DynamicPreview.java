@@ -1,7 +1,9 @@
 package com.szeba.wyv.widgets.dynamic;
 
-import java.awt.Toolkit;
+import java.awt.*;
 import java.awt.datatransfer.StringSelection;
+import java.io.File;
+import java.io.IOException;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.nio.file.attribute.FileTime;
 import java.util.ArrayList;
@@ -117,6 +119,14 @@ public class DynamicPreview extends Widget {
 			if (sg != null) {
 				// Copy this configuration
 				this.copyConfiguration(sg.getParam(0));
+			}
+		}
+		sg = editFile.getSignal();
+		if (sg != null) {
+			try {
+				Desktop.getDesktop().open(new File(Wyvern.DIRECTORY + "/core files/preview_panel.wdat"));
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
 		}
 		
