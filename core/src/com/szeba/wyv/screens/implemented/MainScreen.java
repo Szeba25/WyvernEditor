@@ -517,14 +517,12 @@ public class MainScreen extends GeneralScreen {
 			} else if (Wyvern.input.isKeyPressed(Keys.N)) {
 				processToolbar(new Signal(Signal.T_DEFAULT, "NF"));
 			} else if (Wyvern.input.isKeyPressed(Keys.O)) {
-				if (!SystemUtils.IS_OS_LINUX) {
-					try {
-						File indir = new File (Wyvern.INTERPRETER_DIR);
-						Desktop desktop = Desktop.getDesktop();
-						desktop.open(indir);
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
+				try {
+					File indir = new File (Wyvern.INTERPRETER_DIR);
+					Desktop desktop = Desktop.getDesktop();
+					desktop.open(indir);
+				} catch (IOException e) {
+					e.printStackTrace();
 				}
 			}
 		} else if (Wyvern.input.isKeyPressed(Keys.NUM_1)) {
@@ -737,6 +735,7 @@ public class MainScreen extends GeneralScreen {
 	private void processTestPlay() {
 		if (SystemUtils.IS_OS_LINUX) {
 			// Run the TERMINAL launcher on linux
+			/*
 			String[] cmdarray = new String[3];
 			cmdarray[0] = "sh";
 			cmdarray[1] = "linux_launcher.sh";
@@ -749,6 +748,8 @@ public class MainScreen extends GeneralScreen {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			*/
+			Warning.showWarning("Linux playtest is NYI. Please use \"./gradlew desktop:run\" command from the main directory!");
 		} else if (SystemUtils.IS_OS_WINDOWS) {
 			// Run the CMD launcher on windows
 			String[] cmdarray = new String[4];
