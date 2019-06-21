@@ -690,7 +690,7 @@ public class Cell {
 		for (int x = 0; x < w; x++) {
 			for (int y = 0; y < h; y++) {
 
-				String data[] = StringUtilities.safeSplit(file.getValue(filePos + y, x), "x");
+				String[] data = StringUtilities.safeSplit(file.getValue(filePos + y, x), "a");
 
 				int merged = Integer.parseInt(data[0]);
 				int cr = merged % 48;

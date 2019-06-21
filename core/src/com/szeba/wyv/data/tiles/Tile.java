@@ -60,7 +60,7 @@ public class Tile {
 	}
 
 	public String getAsDataString(int layer) {
-		return Integer.toString(getX(layer) + getY(layer)*48) + "x" +
+		return Integer.toString(getX(layer) + getY(layer)*48) + "a" +
 				Integer.toString(getType(layer) + 1);
 	}
 	
