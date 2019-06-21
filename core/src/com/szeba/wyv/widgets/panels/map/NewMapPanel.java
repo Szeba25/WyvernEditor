@@ -203,7 +203,7 @@ public class NewMapPanel extends Widget {
 					for (int y = 0; y < Integer.parseInt(cellSizeH.getText()); y++) {
 						td.addLine();
 						for (int x = 0; x < Integer.parseInt(cellSizeW.getText()); x++) {
-							td.addValue("0x0");
+							td.addValue("0a0");
 						}
 					}
 				}
