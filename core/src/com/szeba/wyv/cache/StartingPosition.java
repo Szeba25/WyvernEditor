@@ -15,7 +15,7 @@ public class StartingPosition {
 		TextFile file = new TextFile(Wyvern.INTERPRETER_DIR + "/preferences/start.wdat");
 		mapPath = file.getValue(0, 0);
 		cellX = Integer.parseInt(file.getValue(1, 0));
-		cellX = Integer.parseInt(file.getValue(2, 0));
+		cellY = Integer.parseInt(file.getValue(2, 0));
 		x = Integer.parseInt(file.getValue(3, 0));
 		y = Integer.parseInt(file.getValue(4, 0));
 	}
