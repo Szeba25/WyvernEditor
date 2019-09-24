@@ -22,7 +22,7 @@ The editor supports an experimental GUI editor to create dynamic GUI interfaces 
 
 - Copy the jar from desktop/build/libs to core/
 - Rename the jar to "Wyvern.jar"
-- Copy the following files to core/core files/:
+- Copy the following files from "core/core files/config base" to "core/core files/":
   - interpreter.wdat
   - main_config.wdat
   - preview_panel.wdat
