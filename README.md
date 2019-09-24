@@ -20,7 +20,7 @@ The editor supports an experimental GUI editor to create dynamic GUI interfaces 
 ## Building
 >./gradlew.bat desktop:dist
 
-- Copy the jar from desktop/build/libs to core/
+- Copy the jar from desktop/build/libs/ to core/
 - Rename the jar to "Wyvern.jar"
 - Copy the following files from "core/core files/config base" to "core/core files/":
   - interpreter.wdat
