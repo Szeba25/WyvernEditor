@@ -33,4 +33,4 @@ The editor supports an experimental GUI editor to create dynamic GUI interfaces 
 
 If successfully did the above, you can launch the editor with double clicking Wyvern.jar in core/
 
-## NOTE: The windows_launcher.bat file is for the portble version, if a JRE is included with the editor
+## NOTE: The windows_launcher.bat file is for the portable version (if a JRE is included with the editor)
