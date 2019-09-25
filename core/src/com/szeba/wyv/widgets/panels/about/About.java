@@ -46,17 +46,17 @@ public class About extends Widget {
 		
 		title1 = new Text(getX(), getY(), 20, 40, 360, 20, "Created by");
 		
-		title2 = new Text(getX(), getY(), 20, 150, 360, 20, "Powered by");
+		title2 = new Text(getX(), getY(), 20, 170, 360, 20, "Powered by");
 		
 		banner = new Button[3];
 		
-		banner[0] = new Button(getX(), getY(), 40, 180, 320, 30, "http://neverbeen.hu/");
+		banner[0] = new Button(getX(), getY(), 40, 200, 320, 30, "http://neverbeen.hu/");
 		banner[0].setTooltip("http://neverbeen.hu/");
 		banner[0].setRegion(Wyvern.cache.getBanner1());
-		banner[1] = new Button(getX(), getY(), 40, 215, 320, 30, "http://libgdx.badlogicgames.com/");
+		banner[1] = new Button(getX(), getY(), 40, 235, 320, 30, "http://libgdx.badlogicgames.com/");
 		banner[1].setTooltip("http://libgdx.badlogicgames.com/");
 		banner[1].setRegion(Wyvern.cache.getBanner2());
-		banner[2] = new Button(getX(), getY(), 40, 250, 320, 30, "http://commons.apache.org/");
+		banner[2] = new Button(getX(), getY(), 40, 270, 320, 30, "http://commons.apache.org/");
 		banner[2].setTooltip("http://commons.apache.org/");
 		banner[2].setRegion(Wyvern.cache.getBanner3());
 		
@@ -127,11 +127,11 @@ public class About extends Widget {
 	public void mainDraw(SpriteBatch batch) {
 		drawBackground(batch);
 		drawOutline(batch);
-		//FontUtilities.print(batch, "Choose theme: ", getX()+5, getY()+2);
 		FontUtilities.print(batch, "Version: " + Wyvern.VERSION + " 2019", getX()+5, getY()+5);
 		FontUtilities.print(batch, "Programming: Szeba", getX() + 40, getY() + 75);
 		FontUtilities.print(batch, "Graphics: Zsuzsy", getX() + 40, getY() + 95);
 		FontUtilities.print(batch, "Contributor: Böbi", getX() + 40, getY() + 115);
+		FontUtilities.print(batch, "Audio: soundimage.org", getX() + 40, getY() + 135);
 	}
 	
 	private void saveTheme() {
