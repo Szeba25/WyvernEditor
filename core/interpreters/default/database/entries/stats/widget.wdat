@@ -1,0 +1,17 @@
+@> Texts
+
+.|w|0|null|text|5|5|100|19|Name
+
+.|w|1|null|text|5|30|100|19|Health
+.|w|2|null|text|5|50|100|19|Damage
+.|w|3|null|text|5|70|100|19|Initiative
+.|w|4|null|text|5|90|100|19|Action points
+
+@> Fields
+
+0|w|100|null|textfield|110|6|200|1
+
+1|w|101|null|doublefield|110|31|60|N|10000
+2|w|102|null|doublefield|110|51|60|N|1000
+3|w|103|null|doublefield|110|71|60|N|100
+4|w|104|null|intfield|110|91|60|N|100

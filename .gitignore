@@ -78,12 +78,8 @@ Thumbs.db
 ## Wyvern specific
 
 core/core\ files/jre1.8.0_201/
-core/core\ files/interpreter.wdat
-core/core\ files/preview_panel.wdat
-core/core\ files/signature.txt
-core/core\ files/main_config.wdat
-core/interpreters/
 core/logs/
+core/desktop-1.0.jar
 core/Wyvern.jar
 core/Wyvern.exe
 core/Wyvern.xml

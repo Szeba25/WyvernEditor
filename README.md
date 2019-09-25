@@ -20,17 +20,7 @@ The editor supports an experimental GUI editor to create dynamic GUI interfaces 
 ## Building
 >./gradlew.bat desktop:dist
 
-- Copy the jar from desktop/build/libs/ to core/
-- Rename the jar to "Wyvern.jar"
-- Copy the following files from "core/core files/config base" to "core/core files/":
-  - interpreter.wdat
-  - main_config.wdat
-  - preview_panel.wdat
-  - signature.txt
-- Copy the default_interpreter folder to core/interpreters/ (Note: create core/interpreters/ if doesnt exist)
-- Rename the default_interpreter/ folder to default/
-- Delete the following file: core/interpreters/default/database/entries/DELETE_ME
+- Copy the "desktop-1.0.jar" file from "desktop/build/libs/" to "core/"
+- You can launch the editor with double clicking "desktop-1.0.jar" from the "core/" folder.
 
-If successfully did the above, you can launch the editor with double clicking Wyvern.jar in core/
-
-## NOTE: The windows_launcher.bat file is for the portable version (if a JRE is included with the editor)
+## NOTE: The windows_launcher.bat file is for the portable version (if a JRE is included with the editor).
