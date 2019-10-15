@@ -50,7 +50,7 @@ public class DynDBList extends ButtonList implements Dynamic {
 	@Override
 	public void dynReset() {
 		// List one database entry
-		ArrayList<ListElement> elearr = new ArrayList<ListElement>();
+		ArrayList<ListElement> elearr = new ArrayList<>();
 		
 		if (Wyvern.database.ent.entryData.get(entry) == null) {
 			this.resetElements();

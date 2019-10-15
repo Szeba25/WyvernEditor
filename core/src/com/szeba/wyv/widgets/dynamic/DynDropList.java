@@ -11,7 +11,7 @@ public class DynDropList extends DropList implements Dynamic {
 	private String receiver;
 	
 	public DynDropList(int ox, int oy, int rx, int ry, int w, int hval,
-			ArrayList<ListElement> elements) {
+					   ArrayList<ListElement> elements) {
 		super(ox, oy, rx, ry, w, hval, elements);
 	}
 

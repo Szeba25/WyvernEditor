@@ -65,6 +65,7 @@ public class DynamicPreview extends Widget {
 		commandArray.add("vardb");
 		commandArray.add("movec");
 		commandArray.add("dbentrypicker");
+		commandArray.add("dbdroplist");
 		commandArray.add("eventpicker");
 		commandArray.add("mapjumper");
 		
@@ -185,7 +186,7 @@ public class DynamicPreview extends Widget {
 		previewPanel.removeWidget(0);
 		previewPanel.setEnterFocusDefault(null);
 		if (add) {
-			this.removeWidget(34);
+			this.removeWidget(35); // IF YOU ADD ANOTHER WIDGET, INCREMENT THIS VALUE!
 			this.addWidget(previewPanel);
 		}
 		this.setPreviewPanelSize();

@@ -604,7 +604,21 @@ public class DynamicPanel extends Widget {
 			wid = new DynDBEntryPicker(getX(), getY(), x, y, w, h, entryname);
 		}
 		break;
-		
+
+		// Build a new db drop list
+		//
+		//
+		case "dbdroplist":
+		{
+			int x = Integer.parseInt(line.get(5));
+			int y = Integer.parseInt(line.get(6));
+			int w = Integer.parseInt(line.get(7));
+			int h = Integer.parseInt(line.get(8));
+			String entryname = line.get(9);
+			wid = new DynDropDBList(getX(), getY(), x, y, w, h, entryname);
+		}
+		break;
+
 		// Build a new event picker
 		// x, y, w, h, comev
 		// (def build added)
@@ -1019,6 +1033,18 @@ public class DynamicPanel extends Widget {
 			finalList.add("0");
 			finalList.add("200");
 			finalList.add("200");
+			finalList.add("none");
+		}
+		break;
+
+		// x, y, w, h, entryname
+		case "dbdroplist":
+		{
+			finalList.add("@>, x, y, width, line count (*16 in pixel), db entry name");
+			finalList.add("0");
+			finalList.add("0");
+			finalList.add("200");
+			finalList.add("5");
 			finalList.add("none");
 		}
 		break;
