@@ -65,7 +65,7 @@ public class MainScreen extends GeneralScreen {
 		super.init();
 		
 		// Create elements
-		e_List = new DirListMapsEditable(0, 0, 0, 0, 272, 12, 
+		e_List = new DirListMapsEditable(0, 0, 0, 0, 272, 18,
 				Wyvern.INTERPRETER_DIR + "/maps", Wyvern.INTERPRETER_DIR + "/maps");
 		e_List.setMultiSelection(true);
 		
@@ -257,10 +257,10 @@ public class MainScreen extends GeneralScreen {
 		e_MapPanel.setW(width-272);
 		
 		e_TilesetPanel.setRX(width-(272));
-		e_TilesetPanel.setH(height-240);
+		e_TilesetPanel.setH(height-336);
 		e_TilesetPanel.fullReset(3200);
 		e_List.setRX(width-272);
-		e_List.setRY(height-192);
+		e_List.setRY(height-288);
 		
 		e_CellEditor.setToCenter();
 		e_CommonEventPanel.setToCenter();
