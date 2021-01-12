@@ -170,7 +170,8 @@ public class DatabaseEntriesPanel extends Widget {
 				newname = CommandStringGen.generateArrayText(newname);
 			}
 			ListElement listel = entryContentList.getElement(Integer.parseInt(Wyvern.database.ent.currentItem));
-			listel.setName(listel.getData() + ": " + newname);
+			listel.setOriginalName(listel.getData() + ": " + newname);
+			entryContentList.cropElement(listel);
 		}
 	}
 	
@@ -192,8 +193,7 @@ public class DatabaseEntriesPanel extends Widget {
 			if (db.getPanel().getName().equals(entryList.getSelected().getOriginalName())) {
 				db.getPanel().setVisible(true);
 				// Refresh this panels content.
-				db.getPanel().setParamsWithoutName(
-					Wyvern.database.ent.entryData.get(db.getPanel().getName()).getItem(Integer.parseInt(param)));
+				db.getPanel().setParamsWithoutName(Wyvern.database.ent.entryData.get(db.getPanel().getName()).getItem(Integer.parseInt(param)));
 			}
 		}
 	}
@@ -203,8 +203,7 @@ public class DatabaseEntriesPanel extends Widget {
 			Wyvern.database.ent.entryData.get(Wyvern.database.ent.currentEntry).getItems().set(
 					Integer.parseInt(Wyvern.database.ent.currentItem),
 					// Build parameters, and update the entry data.
-					Wyvern.database.ent.entryData.get(
-							Wyvern.database.ent.currentEntry).getPanel().buildParamsWithoutName());
+					Wyvern.database.ent.entryData.get(Wyvern.database.ent.currentEntry).getPanel().buildParamsWithoutName());
 			
 			Wyvern.database.ent.entryData.get(Wyvern.database.ent.currentEntry).markChanged();
 		}
@@ -215,7 +214,6 @@ public class DatabaseEntriesPanel extends Widget {
 	}
 	
 	public void closeAll() {
-		
 		for (DatabaseEntry db : Wyvern.database.ent.entryData.values()) {
 			db.getPanel().setVisible(false);
 		}

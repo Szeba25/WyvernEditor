@@ -59,8 +59,8 @@ public class DesktopLauncher {
 		GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 		int width = gd.getDisplayMode().getWidth();
 		int height = gd.getDisplayMode().getHeight();
-		cfg.width = 1022;
-		cfg.height = 640;
+		cfg.width = 1280;
+		cfg.height = 720;
 		cfg.x = (width - cfg.width) / 2;
 		cfg.y = ((height - cfg.height) / 2) - 40;
 		
