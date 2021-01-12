@@ -49,11 +49,6 @@ public class SplashScreen implements Screen {
 		splash = new TextureRegion(splashTexture, 0, 0, 640, 640);
 		splash.flip(false, true);
 		font = new BitmapFont(true);
-		// Set the splash texture's opacity
-		alphaValue = 0;
-		faderValue = 0;
-		waitTime = 0.5f;
-		splashState = 0;
 	}
 	
 	@Override
@@ -61,7 +56,7 @@ public class SplashScreen implements Screen {
 		// Assign variables
 		alphaValue = 0;
 		faderValue = 0;
-		waitTime = 0.5f;
+		waitTime = 0.2f;
 		splashState = 0;
 	}
 	
@@ -72,7 +67,6 @@ public class SplashScreen implements Screen {
 
 	@Override
 	public void screenDraw(SpriteBatch batch) {
-		
 		batch.setColor(Palette.WHITE);
 		batch.draw(filler, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		
@@ -119,7 +113,7 @@ public class SplashScreen implements Screen {
 	
 	private void state0() {
 		if (alphaValue < 1.0f) {
-			alphaValue += Wyvern.getDelta();
+			alphaValue += Wyvern.getDelta() * 3;
 			if (alphaValue > 1.0f) {
 				alphaValue = 1.0f;
 			}
@@ -157,7 +151,7 @@ public class SplashScreen implements Screen {
 	
 	private void state3() {
 		if (faderValue < 1.0f) {
-			faderValue += Wyvern.getDelta();
+			faderValue += Wyvern.getDelta() * 3;
 			if (faderValue > 1.0f) {
 				faderValue = 1.0f;
 			}
