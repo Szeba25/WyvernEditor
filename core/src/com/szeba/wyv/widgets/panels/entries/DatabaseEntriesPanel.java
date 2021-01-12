@@ -32,7 +32,7 @@ public class DatabaseEntriesPanel extends Widget {
 		setListReferences();
 		
 		// Create the set size elements ui
-		setSize = new Button(getX(), getY(), 250, 25, 70, 17, "set size");
+		setSize = new Button(getX(), getY(), 320, 25, 70, 17, "set size");
 		setSizePrompt = new PromptPanel(0, 0, 0, 0, "");
 		sizeField = Wyvern.database.ent.sizeField;
 		
@@ -95,7 +95,6 @@ public class DatabaseEntriesPanel extends Widget {
 	
 	@Override
 	public void mainUpdate(int scrolled) {
-		
 		// Refresh the lists
 		Signal sg = entryList.getSignal();
 		if (sg != null) {

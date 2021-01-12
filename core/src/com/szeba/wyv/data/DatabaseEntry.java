@@ -35,7 +35,7 @@ public class DatabaseEntry {
 		int height = Integer.parseInt(file.getValue(0, 2));
 		
 		// Load the panel's widgets.
-		mainPanel = new DynamicPanel(entryName, 330, 80, 0, 0, width, height);
+		mainPanel = new DynamicPanel(entryName, 400, 80, 0, 0, width, height);
 		mainPanel.loadWidgets(path + "/widget.wdat");
 		mainPanel.removeWidget(0);
 		mainPanel.removeWidget(0);

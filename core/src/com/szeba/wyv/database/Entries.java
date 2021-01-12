@@ -38,13 +38,12 @@ public class Entries {
 	
 	/** Loads the database entries from the hard disc */
 	public void load() {
-		
 		// Create two empty lists
 		entryList = new ButtonList(0, 0, 10, 90, 160, 30, new ArrayList<ListElement>(), false);
-		entryContentList = new EntryContentList(0, 0, 175, 122, 150, 28, new ArrayList<ListElement>());
+		entryContentList = new EntryContentList(0, 0, 175, 122, 220, 28, new ArrayList<ListElement>());
 		
 		// Create size box, hope its enough...
-		sizeField = new IntField(0, 0, 175, 95, 78, "Z+", 99999);
+		sizeField = new IntField(0, 0, 175, 95, 148, "Z+", 99999);
 		
 		// Initialize the main storage
 		entryData = new HashMap<String, DatabaseEntry>();
